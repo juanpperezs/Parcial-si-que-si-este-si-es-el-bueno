@@ -177,7 +177,22 @@ public class Supermercado {
         }
         return productoEncontrado;
     }
+    //Metodo para confirmar compra
+    public boolean confirmarCompra(int codigoProducto, int cantidadDeseada, int cantidadDisponible){
 
+        boolean esConfirmado=false;
+        for (Producto producto: listaProductos){
+            if (producto.getCodigoProducto() == codigoProducto){
+                if (producto.getCantidadDisponible() >= cantidadDeseada){
+                    esConfirmado=true;
+
+                    int nuevaCantidad = producto.getCantidadDisponible() - cantidadDeseada;
+                    producto.setCantidadDisponible(nuevaCantidad);
+                }
+            }
+        }
+        return esConfirmado;
+    }
     //Metodo para buscar una compra por codigo
     public Compras buscarCompra(int codigo) {
         Compras compraEncontrada = null;
@@ -191,17 +206,7 @@ public class Supermercado {
         return compraEncontrada;
     }
 
-    //Metodo para obtener productos por categoria
-    public List<Producto> getProductosPorCategoria(Categoria cat) {
-        List<Producto> lista = new ArrayList<>();
-        for (int i = 0; i < listaProductos.size(); i++) {
-            Producto productoActual = listaProductos.get(i);
-            if (productoActual.getCategoria() == cat) {
-                lista.add(productoActual);
-            }
-        }
-        return lista;
-    }
+
 
     //Metodo para calcular el valor acumulado por fecha
     public int valorAcumuladoPorFecha(LocalDate fecha) {
