@@ -221,7 +221,7 @@ public class Supermercado {
         return lista;
     }
 
-    //Metodo para calcular el valor acumulado por fecha
+    //Metodo para calcular el valor acumulado en una fecha
     public int valorAcumuladoPorFecha(LocalDate fecha) {
         int acumulado = 0;
         for (int i = 0; i < listaCompras.size(); i++) {
@@ -242,6 +242,10 @@ public class Supermercado {
         }
 
         return agregado;
+    }
+    //Metodo para ver detalles de una compra
+    public Compras verDetalleCompra(int codigoCompra) {
+        return buscarCompra(codigoCompra);
     }
 
     //Getters y setters
