@@ -172,6 +172,49 @@ public class Aplicacion {
                     }
                     break;
                 case 7:
+                    System.out.println("Actualizando producto...");
+
+                    System.out.print("Introduzca el codigo de producto a actualizar: ");
+                    int codigoBusqueda= sc.nextInt();
+
+                    System.out.print("Introduzca el nuevo codigo del producto: ");
+                    int codigoActualizado = sc.nextInt();
+                    sc.nextLine();
+
+                    System.out.print("Introduzca el nuevo nombre del producto: ");
+                    String nuevoNombreProducto= sc.nextLine();
+
+                    System.out.print("Introduzca el nuevo precio del producto: ");
+                    int nuevoPrecio = sc.nextInt();
+                    sc.nextLine();
+
+                    System.out.print("Introduzca la nueva cantidad disponible del producto: ");
+                    int nuevaCantidad = sc.nextInt();
+                    sc.nextLine();
+                    System.out.print("Escoja el tipo de producto (1. Alimento - 2. Bebida - 3. Producto de aseo - 4. Cuidado personal): ");
+                    int opcionProductoActualizado = sc.nextInt();
+                    Categoria tipoProductoActualizado= null;
+
+                    if (opcionProductoActualizado == 1){
+                        tipoProductoActualizado= Categoria.ALIMENTO;
+                    } else if (opcionProductoActualizado == 2){
+                        tipoProductoActualizado= Categoria.BEBIDA;
+                    } else if (opcionProductoActualizado == 3) {
+                        tipoProductoActualizado= Categoria.PRODUCTO_ASEO;
+                    } else if (opcionProductoActualizado == 4){
+                        tipoProductoActualizado= Categoria.CUIDADO_PERSONAL;
+                    } else {
+                        System.out.println("Tipo de producto invalido.");
+                        //break;?
+                    }
+                    if (tipoProductoActualizado != null){
+                        Producto producto = new Producto(codigoActualizado, nuevoNombreProducto, nuevoPrecio, nuevaCantidad, tipoProductoActualizado);
+                        if (supermercado.agregarProducto(producto)){
+                            System.out.println("Producto agregado correctamente: "+ producto.getNombreProducto()+", "+producto.getCodigoProducto()+", "+producto.getCategoria());
+                        } else{
+                            System.out.println("Este producto ya existe.");
+                        }
+                    }
                     break;
                 case 8:
                     break;
