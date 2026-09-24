@@ -1,4 +1,6 @@
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Aplicacion {
@@ -192,10 +194,15 @@ public class Aplicacion {
 
                     System.out.print("Introduzca el codigo de producto a actualizar: ");
                     int codigoBusqueda= sc.nextInt();
-
-                    System.out.print("Introduzca el nuevo codigo del producto: ");
-                    int codigoActualizado = sc.nextInt();
                     sc.nextLine();
+
+                    Producto existente= supermercado.buscarProducto(codigoBusqueda);
+                    if (existente == null){
+                        System.out.println("Producto no encontrado con el código: "+codigoBusqueda);
+                        break;
+                    }
+
+                    System.out.println("Producto sin actualizar: "+existente.getNombreProducto()+", precio: "+existente.getPrecioUnitario()+", unidades disponibles: "+existente.getCantidadDisponible());
 
                     System.out.print("Introduzca el nuevo nombre del producto: ");
                     String nuevoNombreProducto= sc.nextLine();
@@ -207,6 +214,7 @@ public class Aplicacion {
                     System.out.print("Introduzca la nueva cantidad disponible del producto: ");
                     int nuevaCantidad = sc.nextInt();
                     sc.nextLine();
+
                     System.out.print("Escoja el tipo de producto (1. Alimento - 2. Bebida - 3. Producto de aseo - 4. Cuidado personal): ");
                     int opcionProductoActualizado = sc.nextInt();
                     Categoria tipoProductoActualizado= null;
@@ -221,15 +229,15 @@ public class Aplicacion {
                         tipoProductoActualizado= Categoria.CUIDADO_PERSONAL;
                     } else {
                         System.out.println("Tipo de producto invalido.");
-                        //break;?
+                        break;
                     }
-                    if (tipoProductoActualizado != null){
-                        Producto producto = new Producto(codigoActualizado, nuevoNombreProducto, nuevoPrecio, nuevaCantidad, tipoProductoActualizado);
-                        if (supermercado.agregarProducto(producto)){
-                            System.out.println("Producto agregado correctamente: "+ producto.getNombreProducto()+", "+producto.getCodigoProducto()+", "+producto.getCategoria());
-                        } else{
-                            System.out.println("Este producto ya existe.");
-                        }
+
+                    Producto productoActualizado= new Producto(codigoBusqueda, nuevoNombreProducto, nuevoPrecio, nuevaCantidad, tipoProductoActualizado);
+
+                    if (supermercado.actualizarProducto(codigoBusqueda, productoActualizado)){
+                        System.out.println("Producto actualizado correctamente.");
+                    } else {
+                        System.out.println("No se pudo actualizar.");
                     }
                     break;
 
@@ -271,9 +279,17 @@ public class Aplicacion {
                         System.out.println("Tipo de producto invalido.");
                     }
 
-                    for (Producto producto: supermercado.getListaProductos()){
-                        if (producto.getCategoria()==categoria){
-                            System.out.print("Categoria: "+categoria+"\n"+producto);
+                    List<Producto> productosFiltrados= supermercado.getProductosPorCategoria(categoria);
+
+                    System.out.println("\n--- Productos en la categoria: "+categoria+"---");
+                    if (productosFiltrados.isEmpty()){
+                        System.out.println("No hay productos en la categoria: "+categoria);
+                    }else{
+                        for (Producto producto: productosFiltrados){
+                            System.out.println("Codigo: "+producto.getCodigoProducto()+
+                                                "\nNombre: "+producto.getNombreProducto()+
+                                                "\nPrecio: "+producto.getPrecioUnitario()+
+                                                "\nStock: "+producto.getCantidadDisponible());
                         }
                     }
                     break;
@@ -318,6 +334,7 @@ public class Aplicacion {
                         }
                         break;
                     }
+
                 case 12:
                     System.out.println("Agregando producto a compra existente...");
 
@@ -335,18 +352,26 @@ public class Aplicacion {
                         System.out.println("No se encontro la compra o el producto no es valido.");
                     }
                     break;
+
                 case 13:
+
                     break;
+
                 case 14:
                     System.out.println("------Mostrar todas las compras------");
                     for(Compras comprasLista: supermercado.getListaCompras()){
                         System.out.println(comprasLista);
                     }
                     break;
+
                 case 15:
+
                     break;
+
                 case 16:
+
                     break;
+
                 case 0:
                     System.out.println("Finalizando programa...");
                     break;

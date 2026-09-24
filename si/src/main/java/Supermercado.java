@@ -124,6 +124,7 @@ public class Supermercado {
                 producto.setNombreProducto(productoActualizado.getNombreProducto());
                 producto.setPrecioUnitario(productoActualizado.getPrecioUnitario());
                 producto.setCantidadDisponible(productoActualizado.getCantidadDisponible());
+                producto.setCategoria(productoActualizado.getCategoria());
                 estaActualizado=true;
                 break;
             }
@@ -143,6 +144,8 @@ public class Supermercado {
         }
         return esEliminado;
     }
+
+    //---------Compras------------
     //Metodo para verificar compras
     public boolean verificarCompras(int codigoCompra) {
         boolean existe = false;
