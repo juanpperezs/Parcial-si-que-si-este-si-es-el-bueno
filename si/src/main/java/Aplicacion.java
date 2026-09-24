@@ -17,7 +17,25 @@ public class Aplicacion {
             System.out.println("1. Agregar cliente");
             System.out.println("2. Eliminar cliente");
             System.out.println("3. Actualizar cliente");
-            System.out.println("4. Agregar producto");
+            System.out.println("4. Mostrar todos los clientes");
+            System.out.println("5. Consultar las compras de un cliente");
+
+            System.out.println("-----------------------------------------");
+            System.out.println("6. Agregar producto");
+            System.out.println("7. Actualizar producto");
+            System.out.println("8. Eliminar producto");
+            System.out.println("9. Mostrar todos los productos");
+            System.out.println("10. Mostrar productos por categorias");
+
+            System.out.println("--------------------------------------");
+            System.out.println("11. Crear nueva compra");
+            System.out.println("12. Agregar producto a una compra existente");
+            System.out.println("13. Confirmar compra");
+            System.out.println("14. Mostrar todas las compras");
+            System.out.println("15. Ver detalles de una compra");
+
+            System.out.println("--------------------------------------");
+            System.out.println("16. Consultar valor acumulado de una fecha específica");
             System.out.println("0. salir.");
             System.out.print("Selecciona una opcion: ");
             opcion = sc.nextInt();
@@ -89,15 +107,8 @@ public class Aplicacion {
                         System.out.println("Cliente no encontrado");
                     }
                     break;
-                case 4:
-                    System.out.println("------Mostrar todos los clientes------");
-                    for(Clientes clientesLista: supermercado.getListaClientes()){
-                        System.out.println(clientesLista);
-                    }
-                    break;
-                case 5:
-                    System.out.println("-----Consultar compras de clientes-----");
-                    break;
+
+
                 case 6:
                     System.out.println("Agregando producto...");
 
@@ -141,6 +152,7 @@ public class Aplicacion {
                         }
                     }
                     break;
+
                 case 0:
                     System.out.println("Finalizando programa...");
                     break;
