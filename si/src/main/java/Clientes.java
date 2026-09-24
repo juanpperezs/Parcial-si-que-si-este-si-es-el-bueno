@@ -1,5 +1,5 @@
 public class Clientes {
-    //Atributor
+    //Atributos
     private String nombreCompleto;
     private int documentoIdentidad;
     private int telefono;
