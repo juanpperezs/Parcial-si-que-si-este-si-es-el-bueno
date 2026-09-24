@@ -229,6 +229,10 @@ public class Aplicacion {
                     }
                     break;
                 case 9:
+                    System.out.println("Mostrar producto...");
+                    for(Producto productoLista : supermercado.getListaClientes()){
+
+                    }
                     break;
                 case 10:
                     break;

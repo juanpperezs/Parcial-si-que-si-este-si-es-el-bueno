@@ -122,10 +122,19 @@ public class Supermercado {
         return estaActualizado;
     }
 
-    //Metodo mostrar productos
-    public boolean mostrarProducto (int codigoProducto, String nombreProducto, int precioUnitario, int cantidadDisponible){
-
+    //Metodo para eliminar producto
+    public boolean eliminarProducto (int codigoProducto){
+        boolean esEliminado=false;
+        for (Producto producto: listaProductos){
+            if(producto.getCodigoProducto()==codigoProducto){
+                listaProductos.remove(producto);
+                esEliminado=true;
+                break;
+            }
+        }
+        return esEliminado;
     }
+
 
     //Getters y setters
     public String getNombreComercial() {
