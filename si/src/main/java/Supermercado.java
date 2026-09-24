@@ -27,7 +27,10 @@ public class Supermercado {
         listaProductos= new ArrayList<>();
         listaReporteVentas= new ArrayList<>();
     }
-    //Método para verificar clientes
+
+    //=======Clientes=======
+
+    //Metodo para verificar clientes
     public boolean verificarClientes(int documentoIdentidad) {
         boolean existe = false;
         for (Clientes clientes : listaClientes) {
@@ -38,6 +41,7 @@ public class Supermercado {
         }
         return existe;
     }
+
     //Metodo para agregar clientes
     public boolean agregarClientes(Clientes clientes){
         boolean agregado= false;
@@ -48,6 +52,7 @@ public class Supermercado {
         }
         return agregado;
     }
+
     //Metodo para eliminar clientes
     public boolean eliminarCliente (int documentoIdentidad){
         boolean esEliminado=false;
@@ -60,6 +65,9 @@ public class Supermercado {
         }
         return esEliminado;
     }
+
+    //========Productos========
+
     //Metodo para verificar productos
     public boolean verificarProducto(int codigoProducto) {
         boolean existe = false;
@@ -71,6 +79,7 @@ public class Supermercado {
         }
         return existe;
     }
+
     //Metodo para agregar productos
     public boolean agregarProducto(Producto producto){
         boolean agregado= false;
@@ -81,7 +90,8 @@ public class Supermercado {
         }
         return agregado;
     }
-    //Actualizar productos
+
+    //Metodo para actualizar productos
     public boolean actualizarProducto (int codigoProducto, Producto productoActualizado){
         boolean estaActualizado=false;
         for (Producto producto: listaProductos){
@@ -95,6 +105,7 @@ public class Supermercado {
         }
         return estaActualizado;
     }
+
     //Getters y setters
     public String getNombreComercial() {
         return nombreComercial;
