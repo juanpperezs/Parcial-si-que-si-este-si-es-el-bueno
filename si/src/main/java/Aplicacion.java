@@ -208,6 +208,16 @@ public class Aplicacion {
                     }
                     break;
                 case 8:
+                    System.out.println("Eliminando producto...");
+
+                    System.out.print("Introduzca el codigo de producto a eliminar: ");
+                    codigoProducto = sc.nextInt();
+
+                    if (supermercado.eliminarProducto(codigoProducto)){
+                        System.out.println("Producto con el codigo: "+codigoProducto+" fue eliminado correctamente. " );
+                    } else{
+                        System.out.println("Este producto no existe.");
+                    }
                     break;
                 case 9:
                     break;
