@@ -1,6 +1,4 @@
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Compras {
     private int codigoCompra;
@@ -9,8 +7,6 @@ public class Compras {
     private String productoComprado;
     private int valorTotal;
 
-    //Lista de compras realizadas
-    private List<Compras> comprasRealizadas;
 
     public Compras (int codigoCompra, LocalDate fechaRealizacion, MetodoPago metodoPago, String productoComprado, int valorTotal){
         this.codigoCompra= codigoCompra;
@@ -18,8 +14,6 @@ public class Compras {
         this.metodoPago= metodoPago;
         this.productoComprado= productoComprado;
         this.valorTotal=valorTotal;
-
-        comprasRealizadas= new ArrayList<>();
     }
 
 
@@ -59,9 +53,6 @@ public class Compras {
         this.valorTotal = valorTotal;
     }
 
-    public List<Compras> getComprasRealizadas() {return comprasRealizadas;}
-    public void setComprasRealizadas(List<Compras> comprasRealizadas) {this.comprasRealizadas = comprasRealizadas;}
-
     @Override
     public String toString() {
         return "Compras{" +
@@ -70,7 +61,6 @@ public class Compras {
                 ", metodoPago=" + metodoPago +
                 ", productoComprado='" + productoComprado + '\'' +
                 ", valorTotal=" + valorTotal +
-                ", comprasRealizadas=" + comprasRealizadas +
                 '}';
     }
 }

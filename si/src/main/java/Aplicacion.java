@@ -126,7 +126,7 @@ public class Aplicacion {
 
                     if (clienteConsulta == null){
                         System.out.print("Este cliente no existe... Agrégelo en la opción 1.");
-                    } else if (clienteConsulta.)
+                    } else if (clienteConsulta.getComprasRealizadas())
                     break;
 
                 case 6:
