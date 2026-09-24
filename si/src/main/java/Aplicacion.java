@@ -186,6 +186,7 @@ public class Aplicacion {
                         }
                     }
                     break;
+
                 case 7:
                     System.out.println("Actualizando producto...");
 
@@ -231,6 +232,7 @@ public class Aplicacion {
                         }
                     }
                     break;
+
                 case 8:
                     System.out.println("Eliminando producto...");
 
@@ -243,10 +245,36 @@ public class Aplicacion {
                         System.out.println("Este producto no existe.");
                     }
                     break;
+
                 case 9:
+
                     break;
+
                 case 10:
+                    System.out.println("Mostrando productos por categoria...");
+                    int opcionCategoria = sc.nextInt();
+                    sc.nextLine();
+
+                    Categoria categoria= null;
+                    if (opcionCategoria == 1){
+                        categoria= Categoria.ALIMENTO;
+                    } else if (opcionCategoria == 2){
+                        categoria= Categoria.BEBIDA;
+                    } else if (opcionCategoria == 3) {
+                        categoria= Categoria.PRODUCTO_ASEO;
+                    } else if (opcionCategoria == 4){
+                        categoria= Categoria.CUIDADO_PERSONAL;
+                    } else {
+                        System.out.println("Tipo de producto invalido.");
+                    }
+
+                    for (Producto producto: supermercado.getListaProductos()){
+                        if (producto.getCategoria()==categoria){
+                            System.out.print(producto);
+                        }
+                    }
                     break;
+
                 case 11:
                     System.out.println("Creando compra...");
 
