@@ -251,10 +251,10 @@ public class Aplicacion {
                         System.out.println(productoLista);
                     }
                         break;
-
-
                 case 10:
                     System.out.println("Mostrando productos por categoria...");
+
+                    System.out.print("Ingrese que categoría desea inspeccionar (1.ALIMENTO, 2.BEBIDA, 3.PRODUCTO DE ASEO, 4.CUIDADO PERSONAL): ");
                     int opcionCategoria = sc.nextInt();
                     sc.nextLine();
 
@@ -273,7 +273,7 @@ public class Aplicacion {
 
                     for (Producto producto: supermercado.getListaProductos()){
                         if (producto.getCategoria()==categoria){
-                            System.out.print(producto);
+                            System.out.print("Categoria: "+categoria+"\n"+producto);
                         }
                     }
                     break;
@@ -319,6 +319,21 @@ public class Aplicacion {
                         break;
                     }
                 case 12:
+                    System.out.println("Agregando producto a compra existente...");
+
+                    System.out.print("Introduzca el codigo de la compra existente: ");
+                    int codigoCompraBuscada = sc.nextInt();
+                    sc.nextLine();
+
+                    System.out.print("Introduzca el codigo del producto que desea agregar: ");
+                    int codigoProductoAgregado = sc.nextInt();
+                    sc.nextLine();
+
+                    if (supermercado.agregarProductoACompra(codigoCompraBuscada, codigoProductoAgregado)) {
+                        System.out.println("¡Producto agregado a la compra exitosamente!");
+                    } else {
+                        System.out.println("No se encontro la compra o el producto no es valido.");
+                    }
                     break;
                 case 13:
                     break;
