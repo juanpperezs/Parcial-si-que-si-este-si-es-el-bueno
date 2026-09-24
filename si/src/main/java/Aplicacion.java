@@ -336,6 +336,27 @@ public class Aplicacion {
                     }
                     break;
                 case 13:
+                    System.out.println("Confirmando compra...");
+
+                    System.out.println("Ingrese el código de producto a confirmar");
+                    int codigoConfirmacion = sc.nextInt();
+
+                    int codigoCompraConfirmado = sc.nextInt();
+                    System.out.println("Ingrese la cantidad a comprar");
+
+                    int cantidadDeseada = sc.nextInt();
+                    sc.nextLine();
+
+
+
+                    System.out.println("¿Desea confirmar la compra? (S/N): ");
+                    String confirmacion = sc.nextLine();
+
+                    if (confirmacion.equalsIgnoreCase("s")){
+                    }
+            break;
+
+
                     break;
                 case 14:
                     System.out.println("------Mostrar todas las compras------");

@@ -181,7 +181,7 @@ public class Supermercado {
         return productoEncontrado;
     }
     //Metodo para confirmar compra
-    public boolean confirmarCompra(int codigoProducto, int cantidadDeseada, int cantidadDisponible){
+    public boolean confirmarCompra(int codigoProducto, int cantidadDeseada, int codigoCompra){
 
         boolean esConfirmado=false;
         for (Producto producto: listaProductos){
@@ -189,6 +189,7 @@ public class Supermercado {
                 if (producto.getCantidadDisponible() >= cantidadDeseada){
                     esConfirmado=true;
 
+                    int codigoConfirmado= Compras.getCodigoCompra();
                     int nuevaCantidad = producto.getCantidadDisponible() - cantidadDeseada;
                     producto.setCantidadDisponible(nuevaCantidad);
                 }
