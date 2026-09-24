@@ -132,10 +132,6 @@ public class Supermercado {
         return estaActualizado;
     }
 
-    //Metodo mostrar productos
-    public boolean mostrarProducto (int codigoProducto, String nombreProducto, int precioUnitario, int cantidadDisponible){
-
-    }
     //Metodo para eliminar producto
     public boolean eliminarProducto (int codigoProducto){
         boolean esEliminado=false;
@@ -147,6 +143,27 @@ public class Supermercado {
             }
         }
         return esEliminado;
+    }
+    //Metodo para verificar compras
+    public boolean verificarCompras(int codigoCompra) {
+        boolean existe = false;
+        for (Compras compras : listaCompras) {
+            if (compras.getCodigoCompra() == codigoCompra) {
+                existe = true;
+                break;
+            }
+        }
+        return existe;
+    }
+    //Metodo para agregar compras
+    public boolean agregarCompras(Compras compras){
+        boolean agregado= false;
+        boolean existe= verificarCompras(compras.getCodigoCompra());
+        if(existe==false){
+            listaCompras.add(compras);
+            agregado= true;
+        }
+        return agregado;
     }
 
     //Getters y setters
