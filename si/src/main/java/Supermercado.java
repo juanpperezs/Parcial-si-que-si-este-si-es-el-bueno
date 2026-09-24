@@ -47,7 +47,6 @@ public class Supermercado {
         }
         return agregado;
     }
-
     //Getters y setters
 
     public String getNombreComercial() {
