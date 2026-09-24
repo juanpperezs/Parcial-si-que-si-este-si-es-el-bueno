@@ -1,23 +1,18 @@
 public class Clientes {
+    //Atributor
     private String nombreCompleto;
     private int documentoIdentidad;
     private int telefono;
     private String correoElectronico;
 
+    //Constructor
     public Clientes (String nombreCompleto, int documentoIdentidad, int telefono, String correoElectronico){
         this.nombreCompleto= nombreCompleto;
         this.documentoIdentidad= documentoIdentidad;
         this.telefono= telefono;
         this.correoElectronico= correoElectronico;
     }
-    @Override
-    public String toString(){
-        return "Nombre: "+nombreCompleto+
-                ", Documento de identidad: "+documentoIdentidad+
-                ", Telefono: "+telefono+
-                ", Correo electrónico: "+correoElectronico;
-    }
-
+    //Getters y setters
     public String getNombreCompleto() {
         return nombreCompleto;
     }
@@ -48,5 +43,13 @@ public class Clientes {
 
     public void setCorreoElectronico(String correoElectronico) {
         this.correoElectronico = correoElectronico;
+    }
+    //ToString
+    @Override
+    public String toString(){
+        return "Nombre: "+nombreCompleto+
+                ", Documento de identidad: "+documentoIdentidad+
+                ", Telefono: "+telefono+
+                ", Correo electrónico: "+correoElectronico;
     }
 }
