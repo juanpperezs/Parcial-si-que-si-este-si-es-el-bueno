@@ -135,7 +135,7 @@ public class Aplicacion {
                 case 4:
                     System.out.println("------Mostrar todos los clientes------");
                     for (Clientes clientesLista : supermercado.getListaClientes()) {
-                        System.out.println(clientesLista);
+                        System.out.println(clientesLista+"\n");
                     }
                     break;
 
@@ -277,7 +277,7 @@ public class Aplicacion {
 
                 case 9:
                     for (Producto productoLista : supermercado.getListaProductos()) {
-                        System.out.println(productoLista);
+                        System.out.println(productoLista+"\n");
                     }
                     break;
                 case 10:
