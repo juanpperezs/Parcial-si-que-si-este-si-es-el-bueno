@@ -245,8 +245,12 @@ public class Aplicacion {
                     }
                     break;
                 case 9:
-                    System.out.println("Actualizando producto...");
+                    System.out.println("Mostrar productos...");
+                    for(Producto clientesLista: supermercado.getListaClientes()) {
+                        System.out.println(clientesLista);
+                    }
                     break;
+
                 case 10:
                     break;
                 case 11: {
