@@ -15,7 +15,7 @@ public class Aplicacion {
         supermercado.agregarClientes(cliente1);
 
         int opcion;
-        do{
+        do {
             System.out.println("----Menú MARKETPLUS----");
             System.out.println("1. Agregar cliente");
             System.out.println("2. Eliminar cliente");
@@ -44,7 +44,7 @@ public class Aplicacion {
             opcion = sc.nextInt();
             sc.nextLine();
 
-            switch (opcion){
+            switch (opcion) {
                 case 1:
                     System.out.println("Agregando cliente...");
 
@@ -55,7 +55,7 @@ public class Aplicacion {
                     int documento = sc.nextInt();
                     sc.nextLine();
                     //Condición para terminar si se crea un nuevo usuario con igual documento ya registrado
-                    if (supermercado.verificarClientes(documento)){
+                    if (supermercado.verificarClientes(documento)) {
                         System.out.println("El documento ingresado ya está registrado en otro cliente.");
                         System.out.println("No se puede crear. Use otro documento o actualice la información desde la opción 3.");
                         break;
@@ -69,10 +69,10 @@ public class Aplicacion {
 
                     Clientes cliente = new Clientes(nombreCompleto, documento, telefono, correo);
 
-                    if (supermercado.agregarClientes(cliente)){
-                        System.out.println("Cliente agregado correctamente: "+ cliente.getNombreCompleto()+", "+ cliente.getDocumentoIdentidad()+"\n");
-                    } else{
-                        System.out.println("Este cliente ya existe."+"\n");
+                    if (supermercado.agregarClientes(cliente)) {
+                        System.out.println("Cliente agregado correctamente: " + cliente.getNombreCompleto() + ", " + cliente.getDocumentoIdentidad() + "\n");
+                    } else {
+                        System.out.println("Este cliente ya existe." + "\n");
                     }
                     break;
 
@@ -82,10 +82,10 @@ public class Aplicacion {
                     System.out.print("Introduzca el documento del cliente a eliminar: ");
                     int documentoIdentidad = sc.nextInt();
 
-                    if (supermercado.eliminarCliente(documentoIdentidad)){
-                        System.out.println("Cliente con número de documento: "+documentoIdentidad+" fue eliminado correctamente. "+"\n");
-                    } else{
-                        System.out.println("Este cliente no existe."+"\n");
+                    if (supermercado.eliminarCliente(documentoIdentidad)) {
+                        System.out.println("Cliente con número de documento: " + documentoIdentidad + " fue eliminado correctamente. " + "\n");
+                    } else {
+                        System.out.println("Este cliente no existe." + "\n");
                     }
                     break;
 
@@ -93,12 +93,12 @@ public class Aplicacion {
                     System.out.println("Actualizando cliente...");
 
                     System.out.print("Introduzca el documento del cliente a actualizar: ");
-                    int documentoBusqueda= sc.nextInt();
+                    int documentoBusqueda = sc.nextInt();
 
                     //Condición para determinar si el usuario a actualizar existe
-                    Clientes clienteExistente= supermercado.buscarCliente(documentoBusqueda);
-                    if (clienteExistente== null){
-                        System.out.println("Este cliente no existe."+"\n");
+                    Clientes clienteExistente = supermercado.buscarCliente(documentoBusqueda);
+                    if (clienteExistente == null) {
+                        System.out.println("Este cliente no existe." + "\n");
                         break;
                     }
                     System.out.println("Cliente encontrado.");
@@ -108,13 +108,13 @@ public class Aplicacion {
                     sc.nextLine();
 
                     //Condición para determinar si el nuevo documento ya está en uso por otro cliente
-                    if (documentoActualizado!= documentoBusqueda && supermercado.verificarClientes(documentoActualizado)){
-                        System.out.println("El documento ingresado ya está asociado a otro cliente."+"\n");
+                    if (documentoActualizado != documentoBusqueda && supermercado.verificarClientes(documentoActualizado)) {
+                        System.out.println("El documento ingresado ya está asociado a otro cliente." + "\n");
                         break;
                     }
 
                     System.out.print("Introduzca el nuevo nombre del cliente: ");
-                    String nuevoNombre= sc.nextLine();
+                    String nuevoNombre = sc.nextLine();
 
                     System.out.print("Introduzca el nuevo teléfono del cliente: ");
                     int nuevoTelefono = sc.nextInt();
@@ -123,18 +123,18 @@ public class Aplicacion {
                     System.out.print("Introduzca el nuevo correo del cliente: ");
                     String nuevoCorreo = sc.nextLine();
 
-                    Clientes clientesActualizado= new Clientes (nuevoNombre, documentoActualizado, nuevoTelefono, nuevoCorreo);
+                    Clientes clientesActualizado = new Clientes(nuevoNombre, documentoActualizado, nuevoTelefono, nuevoCorreo);
 
-                    if(supermercado.actualizarCliente (documentoBusqueda, clientesActualizado)){
-                        System.out.println("Cliente actualizado correctamente."+"\n");
-                    }else{
-                        System.out.println("Cliente no encontrado"+"\n");
+                    if (supermercado.actualizarCliente(documentoBusqueda, clientesActualizado)) {
+                        System.out.println("Cliente actualizado correctamente." + "\n");
+                    } else {
+                        System.out.println("Cliente no encontrado" + "\n");
                     }
                     break;
 
                 case 4:
                     System.out.println("------Mostrar todos los clientes------");
-                    for(Clientes clientesLista: supermercado.getListaClientes()){
+                    for (Clientes clientesLista : supermercado.getListaClientes()) {
                         System.out.println(clientesLista);
                     }
                     break;
@@ -146,22 +146,22 @@ public class Aplicacion {
                     int documentoConsulta = sc.nextInt();
                     sc.nextLine();
 
-                    Clientes clienteConsulta= supermercado.buscarCliente(documentoConsulta);
+                    Clientes clienteConsulta = supermercado.buscarCliente(documentoConsulta);
 
-                    if (clienteConsulta == null){
-                        System.out.print("Este cliente no existe... Agrégelo en la opción 1."+"\n");
-                    } else if (clienteConsulta.getComprasRealizadas().isEmpty()){
-                        System.out.println("El cliente "+clienteConsulta.getNombreCompleto()+" no tiene compras realizadas.");
+                    if (clienteConsulta == null) {
+                        System.out.print("Este cliente no existe... Agrégelo en la opción 1." + "\n");
+                    } else if (clienteConsulta.getComprasRealizadas().isEmpty()) {
+                        System.out.println("El cliente " + clienteConsulta.getNombreCompleto() + " no tiene compras realizadas.");
                         System.out.print("¿Desea realizar una compra para este cliente? (Si/No): ");
                         String respuesta = sc.nextLine();
-                        if (respuesta.equalsIgnoreCase("Si")){
-                            System.out.println("Perfecto, en este caso puede realizar la compra en la opción 11"+"\n");
-                        } else if (respuesta.equalsIgnoreCase("No"+"\n")){
+                        if (respuesta.equalsIgnoreCase("Si")) {
+                            System.out.println("Perfecto, en este caso puede realizar la compra en la opción 11" + "\n");
+                        } else if (respuesta.equalsIgnoreCase("No" + "\n")) {
                             break;
                         }
                     } else {
-                        System.out.println("Compras de: "+clienteConsulta.getNombreCompleto());
-                        for (Compras compras: clienteConsulta.getComprasRealizadas()){
+                        System.out.println("Compras de: " + clienteConsulta.getNombreCompleto());
+                        for (Compras compras : clienteConsulta.getComprasRealizadas()) {
                             System.out.println(compras);
                         }
                     }
@@ -186,26 +186,26 @@ public class Aplicacion {
 
                     System.out.print("Escoja el tipo de producto (1. Alimento - 2. Bebida - 3. Producto de aseo - 4. Cuidado personal): ");
                     int opcionProducto = sc.nextInt();
-                    Categoria tipoProducto= null;
+                    Categoria tipoProducto = null;
 
-                    if (opcionProducto == 1){
-                        tipoProducto= Categoria.ALIMENTO;
-                    } else if (opcionProducto == 2){
-                        tipoProducto= Categoria.BEBIDA;
+                    if (opcionProducto == 1) {
+                        tipoProducto = Categoria.ALIMENTO;
+                    } else if (opcionProducto == 2) {
+                        tipoProducto = Categoria.BEBIDA;
                     } else if (opcionProducto == 3) {
-                        tipoProducto= Categoria.PRODUCTO_ASEO;
-                    } else if (opcionProducto == 4){
-                        tipoProducto= Categoria.CUIDADO_PERSONAL;
+                        tipoProducto = Categoria.PRODUCTO_ASEO;
+                    } else if (opcionProducto == 4) {
+                        tipoProducto = Categoria.CUIDADO_PERSONAL;
                     } else {
-                        System.out.println("Tipo de producto invalido."+"\n");
+                        System.out.println("Tipo de producto invalido." + "\n");
                         //break;?
                     }
-                    if (tipoProducto != null){
+                    if (tipoProducto != null) {
                         Producto producto = new Producto(codigoProducto, nombreProducto, precioUnitario, cantidadProductos, tipoProducto);
-                        if (supermercado.agregarProducto(producto)){
-                            System.out.println("Producto agregado correctamente: "+ producto.getNombreProducto()+", "+producto.getCodigoProducto()+", "+producto.getCategoria()+"\n");
-                        } else{
-                            System.out.println("Este producto ya existe."+"\n");
+                        if (supermercado.agregarProducto(producto)) {
+                            System.out.println("Producto agregado correctamente: " + producto.getNombreProducto() + ", " + producto.getCodigoProducto() + ", " + producto.getCategoria() + "\n");
+                        } else {
+                            System.out.println("Este producto ya existe." + "\n");
                         }
                     }
                     break;
@@ -214,19 +214,19 @@ public class Aplicacion {
                     System.out.println("Actualizando producto...");
 
                     System.out.print("Introduzca el codigo de producto a actualizar: ");
-                    int codigoBusqueda= sc.nextInt();
+                    int codigoBusqueda = sc.nextInt();
                     sc.nextLine();
 
-                    Producto existente= supermercado.buscarProducto(codigoBusqueda);
-                    if (existente == null){
-                        System.out.println("Producto no encontrado con el código: "+codigoBusqueda+"\n");
+                    Producto existente = supermercado.buscarProducto(codigoBusqueda);
+                    if (existente == null) {
+                        System.out.println("Producto no encontrado con el código: " + codigoBusqueda + "\n");
                         break;
                     }
 
-                    System.out.println("Producto sin actualizar: "+existente.getNombreProducto()+", precio: "+existente.getPrecioUnitario()+", unidades disponibles: "+existente.getCantidadDisponible());
+                    System.out.println("Producto sin actualizar: " + existente.getNombreProducto() + ", precio: " + existente.getPrecioUnitario() + ", unidades disponibles: " + existente.getCantidadDisponible());
 
                     System.out.print("Introduzca el nuevo nombre del producto: ");
-                    String nuevoNombreProducto= sc.nextLine();
+                    String nuevoNombreProducto = sc.nextLine();
 
                     System.out.print("Introduzca el nuevo precio del producto: ");
                     int nuevoPrecio = sc.nextInt();
@@ -238,27 +238,27 @@ public class Aplicacion {
 
                     System.out.print("Escoja el tipo de producto (1. Alimento - 2. Bebida - 3. Producto de aseo - 4. Cuidado personal): ");
                     int opcionProductoActualizado = sc.nextInt();
-                    Categoria tipoProductoActualizado= null;
+                    Categoria tipoProductoActualizado = null;
 
-                    if (opcionProductoActualizado == 1){
-                        tipoProductoActualizado= Categoria.ALIMENTO;
-                    } else if (opcionProductoActualizado == 2){
-                        tipoProductoActualizado= Categoria.BEBIDA;
+                    if (opcionProductoActualizado == 1) {
+                        tipoProductoActualizado = Categoria.ALIMENTO;
+                    } else if (opcionProductoActualizado == 2) {
+                        tipoProductoActualizado = Categoria.BEBIDA;
                     } else if (opcionProductoActualizado == 3) {
-                        tipoProductoActualizado= Categoria.PRODUCTO_ASEO;
-                    } else if (opcionProductoActualizado == 4){
-                        tipoProductoActualizado= Categoria.CUIDADO_PERSONAL;
+                        tipoProductoActualizado = Categoria.PRODUCTO_ASEO;
+                    } else if (opcionProductoActualizado == 4) {
+                        tipoProductoActualizado = Categoria.CUIDADO_PERSONAL;
                     } else {
-                        System.out.println("Tipo de producto invalido."+"\n");
+                        System.out.println("Tipo de producto invalido." + "\n");
                         break;
                     }
 
-                    Producto productoActualizado= new Producto(codigoBusqueda, nuevoNombreProducto, nuevoPrecio, nuevaCantidad, tipoProductoActualizado);
+                    Producto productoActualizado = new Producto(codigoBusqueda, nuevoNombreProducto, nuevoPrecio, nuevaCantidad, tipoProductoActualizado);
 
-                    if (supermercado.actualizarProducto(codigoBusqueda, productoActualizado)){
-                        System.out.println("Producto actualizado correctamente."+"\n");
+                    if (supermercado.actualizarProducto(codigoBusqueda, productoActualizado)) {
+                        System.out.println("Producto actualizado correctamente." + "\n");
                     } else {
-                        System.out.println("No se pudo actualizar."+"\n");
+                        System.out.println("No se pudo actualizar." + "\n");
                     }
                     break;
 
@@ -268,18 +268,18 @@ public class Aplicacion {
                     System.out.print("Introduzca el codigo de producto a eliminar: ");
                     codigoProducto = sc.nextInt();
 
-                    if (supermercado.eliminarProducto(codigoProducto)){
-                        System.out.println("Producto con el codigo: "+codigoProducto+" fue eliminado correctamente. "+"\n");
-                    } else{
-                        System.out.println("Este producto no existe."+"\n");
+                    if (supermercado.eliminarProducto(codigoProducto)) {
+                        System.out.println("Producto con el codigo: " + codigoProducto + " fue eliminado correctamente. " + "\n");
+                    } else {
+                        System.out.println("Este producto no existe." + "\n");
                     }
                     break;
 
                 case 9:
-                    for(Producto productoLista: supermercado.getListaProductos()){
+                    for (Producto productoLista : supermercado.getListaProductos()) {
                         System.out.println(productoLista);
                     }
-                        break;
+                    break;
                 case 10:
                     System.out.println("Mostrando productos por categoria...");
 
@@ -287,30 +287,30 @@ public class Aplicacion {
                     int opcionCategoria = sc.nextInt();
                     sc.nextLine();
 
-                    Categoria categoria= null;
-                    if (opcionCategoria == 1){
-                        categoria= Categoria.ALIMENTO;
-                    } else if (opcionCategoria == 2){
-                        categoria= Categoria.BEBIDA;
+                    Categoria categoria = null;
+                    if (opcionCategoria == 1) {
+                        categoria = Categoria.ALIMENTO;
+                    } else if (opcionCategoria == 2) {
+                        categoria = Categoria.BEBIDA;
                     } else if (opcionCategoria == 3) {
-                        categoria= Categoria.PRODUCTO_ASEO;
-                    } else if (opcionCategoria == 4){
-                        categoria= Categoria.CUIDADO_PERSONAL;
+                        categoria = Categoria.PRODUCTO_ASEO;
+                    } else if (opcionCategoria == 4) {
+                        categoria = Categoria.CUIDADO_PERSONAL;
                     } else {
-                        System.out.println("Tipo de producto invalido."+"\n");
+                        System.out.println("Tipo de producto invalido." + "\n");
                     }
 
-                    List<Producto> productosFiltrados= supermercado.getProductosPorCategoria(categoria);
+                    List<Producto> productosFiltrados = supermercado.getProductosPorCategoria(categoria);
 
-                    System.out.println("\n--- Productos en la categoria: "+categoria+"---");
-                    if (productosFiltrados.isEmpty()){
-                        System.out.println("No hay productos en la categoria: "+categoria+"\n");
-                    }else{
-                        for (Producto producto: productosFiltrados){
-                            System.out.println("Codigo: "+producto.getCodigoProducto()+
-                                                "\nNombre: "+producto.getNombreProducto()+
-                                                "\nPrecio: "+producto.getPrecioUnitario()+
-                                                "\nStock: "+producto.getCantidadDisponible());
+                    System.out.println("\n--- Productos en la categoria: " + categoria + "---");
+                    if (productosFiltrados.isEmpty()) {
+                        System.out.println("No hay productos en la categoria: " + categoria + "\n");
+                    } else {
+                        for (Producto producto : productosFiltrados) {
+                            System.out.println("Codigo: " + producto.getCodigoProducto() +
+                                    "\nNombre: " + producto.getNombreProducto() +
+                                    "\nPrecio: " + producto.getPrecioUnitario() +
+                                    "\nStock: " + producto.getCantidadDisponible());
                         }
                     }
                     break;
@@ -319,7 +319,7 @@ public class Aplicacion {
                     System.out.println("Creando compra...");
 
 
-                    int codigoCompra = 1 + (int)(Math.random() * 100);
+                    int codigoCompra = 1 + (int) (Math.random() * 100);
                     System.out.println("Código de compra asignado: " + codigoCompra);
 
                     System.out.print("Introduzca la fecha de realizacion (AAAA-MM-DD): ");
@@ -338,23 +338,23 @@ public class Aplicacion {
                         metodoPago = MetodoPago.EFECTIVO;
                     } else {
                         System.out.println("Método de pago inválido.");
-
-                        System.out.print("Introduzca el nombre del producto comprado: ");
-                        String productoComprado = sc.nextLine();
-
-                        System.out.print("Introduzca el valor total: ");
-                        int valorTotal = sc.nextInt();
-                        sc.nextLine();
-
-                        Compras compras = new Compras(codigoCompra, fechaRealizacion, metodoPago, productoComprado, valorTotal);
-
-                        if (supermercado.agregarCompras(compras)) {
-                            System.out.println("¡Compra agregada correctamente!");
-                        } else {
-                            System.out.println("Esta compra ya existe.");
-                        }
-                        break;
                     }
+
+                    System.out.print("Introduzca el nombre del producto comprado: ");
+                    String productoComprado = sc.nextLine();
+
+                    System.out.print("Introduzca el valor total: ");
+                    int valorTotal = sc.nextInt();
+                    sc.nextLine();
+
+                    Compras compras = new Compras(codigoCompra, fechaRealizacion, metodoPago, productoComprado, valorTotal);
+
+                    if (supermercado.agregarCompras(compras)) {
+                        System.out.println("¡Compra agregada correctamente!");
+                    } else {
+                        System.out.println("Esta compra ya existe.");
+                    }
+                    break;
 
                 case 12:
                     System.out.println("Agregando producto a compra existente...");
@@ -446,4 +446,4 @@ public class Aplicacion {
         } while (opcion != 0);
         sc.close();
     }
-}
+    }
