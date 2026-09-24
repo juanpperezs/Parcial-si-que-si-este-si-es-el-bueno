@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Supermercado {
 
@@ -6,6 +7,13 @@ public class Supermercado {
     private String nombreComercial;
     private String direccion;
     private int telefono;
+
+    //Lista
+    private List<Clientes>listaClientes;
+    private List<Compras>listaCompras;
+    private List<Producto>listaProductos;
+    private List<ReporteVentas>listaReporteVentas;
+
 
     //Constructor
     public Supermercado(String nombreComercial, String direccion, int telefono) {
@@ -40,7 +48,6 @@ public class Supermercado {
         }
         return agregado;
     }
-
     //Getters y setters
 
     public String getNombreComercial() {
