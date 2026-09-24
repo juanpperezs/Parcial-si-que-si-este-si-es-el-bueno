@@ -162,7 +162,6 @@ public class Aplicacion {
                         }
                     }
                     break;
-
                 case 0:
                     System.out.println("Finalizando programa...");
                     break;
