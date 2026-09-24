@@ -1,6 +1,6 @@
 public enum Categoria {
-    ALIMENTOS,
-    BEBIDAS,
-    PRODUCTOS_ASEO,
+    ALIMENTO,
+    BEBIDA,
+    PRODUCTO_ASEO,
     CUIDADO_PERSONAL
 }
