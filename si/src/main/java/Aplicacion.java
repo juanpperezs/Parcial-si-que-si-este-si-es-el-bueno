@@ -118,6 +118,15 @@ public class Aplicacion {
                 case 5:
                     System.out.println("-----Consultar compras de clientes-----");
 
+                    System.out.print("Ingrese el documento del cliente a consultar: ");
+                    int documentoConsulta = sc.nextInt();
+                    sc.nextLine();
+
+                    Clientes clienteConsulta= supermercado.buscarCliente(documentoConsulta);
+
+                    if (clienteConsulta == null){
+                        System.out.print("Este cliente no existe... Agrégelo en la opción 1.");
+                    } else if (clienteConsulta.)
                     break;
 
                 case 6:
