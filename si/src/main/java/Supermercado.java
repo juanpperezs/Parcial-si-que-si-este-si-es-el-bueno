@@ -122,11 +122,6 @@ public class Supermercado {
         return estaActualizado;
     }
 
-    //Metodo mostrar productos
-    public boolean mostrarProducto (int codigoProducto, String nombreProducto, int precioUnitario, int cantidadDisponible){
-
-    }
-
     //Getters y setters
     public String getNombreComercial() {
         return nombreComercial;
