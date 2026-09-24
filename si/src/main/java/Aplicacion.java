@@ -171,6 +171,7 @@ public class Aplicacion {
                         }
                     }
                     break;
+
                 case 7:
                     System.out.println("Actualizando producto...");
 
@@ -216,6 +217,7 @@ public class Aplicacion {
                         }
                     }
                     break;
+
                 case 8:
                     System.out.println("Eliminando producto...");
 
@@ -228,29 +230,46 @@ public class Aplicacion {
                         System.out.println("Este producto no existe.");
                     }
                     break;
+
                 case 9:
+
                     break;
+
                 case 10:
+
                     break;
+
                 case 11:
+
                     break;
+
                 case 12:
+
                     break;
+
                 case 13:
+
                     break;
+
                 case 14:
                     System.out.println("------Mostrar todas las compras------");
                     for(Compras comprasLista: supermercado.getListaCompras()){
                         System.out.println(comprasLista);
                     }
                     break;
+
                 case 15:
+
                     break;
+
                 case 16:
+
                     break;
+
                 case 0:
                     System.out.println("Finalizando programa...");
                     break;
+
                 default:
                     System.out.println("Opción no válida...");
             }
