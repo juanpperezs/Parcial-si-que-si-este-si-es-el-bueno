@@ -249,38 +249,49 @@ public class Aplicacion {
                     break;
                 case 10:
                     break;
-                case 11:
-                    System.out.println("Creando compra...");
+                case 11: {
+                        System.out.println("Creando compra...");
 
-                    System.out.print("Introduzca la fecha de realización: ");
-                    LocalDate fechaRealizacion = LocalDate.parse(sc.nextLine());
+                        // Código aleatorio súper sencillo para estudiante
+                        int codigoCompra = 1 + (int)(Math.random() * 100);
+                        System.out.println("Código de compra asignado: " + codigoCompra);
 
-                    System.out.print("Escoja el metodo de pago (1. Tarjeta - 2. Transferencia - 3. Efectivo): ");
-                    int opcionCompras = sc.nextInt();
-                    Categoria tipoCompras= null;
+                        System.out.print("Introduzca la fecha de realizacion (AAAA-MM-DD): ");
+                        LocalDate fechaRealizacion = LocalDate.parse(sc.nextLine());
 
-                    if (opcionCompras == 1){
-                        tipoCompras= Categoria.TARJETA;
-                    } else if (opcionCompras  == 2){
-                        tipoCompras= Categoria.TRANSFERENCIA;
-                    } else if (opcionCompras  == 3) {
-                        tipoCompras= Categoria.EFECTIVO;
-                    } else {
-                        System.out.println("Tipo de producto invalido.");
-                        //break;?
-                    }
+                        System.out.print("Escoja el metodo de pago (1. Tarjeta - 2. Transferencia - 3. Efectivo): ");
+                        int opcionCompras = sc.nextInt();
+                        sc.nextLine();
 
-                    if (tipoCompras != null){
-                        Compras compras = new Compras(codigoProducto, nombreProducto, precioUnitario, cantidadProductos, tipoProducto);
-                        if (supermercado.agregarCompras(compras)){
-                            System.out.println("Producto agregado correctamente: "+ producto.getNombreProducto()+", "+producto.getCodigoProducto()+", "+producto.getCategoria());
-                        } else{
-                            System.out.println("Este producto ya existe.");
+                        MetodoPago metodoPago = null;
+                        if (opcionCompras == 1) {
+                            metodoPago = MetodoPago.TARJETA;
+                        } else if (opcionCompras == 2) {
+                            metodoPago = MetodoPago.TRANSFERENCIA;
+                        } else if (opcionCompras == 3) {
+                            metodoPago = MetodoPago.EFECTIVO;
+                        } else {
+                            System.out.println("Método de pago inválido.");
+                            break;
                         }
-                    }
-                    break;
 
-                break;
+                        System.out.print("Introduzca el nombre del producto comprado: ");
+                        String productoComprado = sc.nextLine();
+
+                        System.out.print("Introduzca el valor total: ");
+                        int valorTotal = sc.nextInt();
+                        sc.nextLine();
+
+                        // Se le pasa el código aleatorio directamente al objeto de la compra
+                        Compras compras = new Compras(codigoCompra, fechaRealizacion, metodoPago, productoComprado, valorTotal);
+
+                        if (supermercado.agregarCompras(compras)) {
+                            System.out.println("¡Compra agregada correctamente!");
+                        } else {
+                            System.out.println("Esta compra ya existe.");
+                        }
+                        break;
+                    }
                 case 12:
                     break;
                 case 13:
