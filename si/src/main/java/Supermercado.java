@@ -54,10 +54,10 @@ public class Supermercado {
     }
 
     //Metodo para actualizar datos de cliente
-    public boolean actualizarCliente (int documento, Clientes clienteActualizado) {
+    public boolean actualizarCliente (int documentoBusqueda, Clientes clienteActualizado) {
         boolean estaActualizado = false;
         for (Clientes cliente : listaClientes) {
-            if (cliente.getDocumentoIdentidad() == documento) {
+            if (cliente.getDocumentoIdentidad() == documentoBusqueda) {
                 cliente.setDocumentoIdentidad(clienteActualizado.getDocumentoIdentidad());
                 cliente.setNombreCompleto(clienteActualizado.getNombreCompleto());
                 cliente.setTelefono(clienteActualizado.getTelefono());

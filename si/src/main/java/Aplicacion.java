@@ -13,7 +13,8 @@ public class Aplicacion {
             System.out.println("----Menú MARKETPLUS----");
             System.out.println("1. Agregar cliente");
             System.out.println("2. Eliminar cliente");
-            System.out.println("3. Agregar producto");
+            System.out.println("3. Actualizar cliente");
+            System.out.println("4. Agregar producto");
             System.out.println("0. salir.");
             System.out.print("Selecciona una opcion: ");
             opcion = sc.nextInt();
@@ -60,6 +61,35 @@ public class Aplicacion {
                     break;
 
                 case 3:
+                    System.out.println("Actualizando cliente...");
+
+                    System.out.print("Introduzca el documento del cliente a actualizar: ");
+                    int documentoBusqueda= sc.nextInt();
+
+                    System.out.print("Introduzca el nuevo número de documento del cliente: ");
+                    int documentoActualizado = sc.nextInt();
+                    sc.nextLine();
+
+                    System.out.print("Introduzca el nuevo nombre del cliente: ");
+                    String nuevoNombre= sc.nextLine();
+
+                    System.out.print("Introduzca el nuevo teléfono del cliente: ");
+                    int nuevoTelefono = sc.nextInt();
+
+                    System.out.print("Introduzca el nuevo correo del cliente: ");
+                    String nuevoCorreo = sc.nextLine();
+
+                    Clientes clientesActualizado= new Clientes (nuevoNombre, documentoActualizado, nuevoTelefono, nuevoCorreo);
+
+                    if(supermercado.actualizarCliente (documentoBusqueda, clientesActualizado)){
+                        System.out.println("Cliente actualizado correctamente.");
+                    }else{
+                        System.out.println("Cliente no encontrado");
+                    }
+                    break;
+
+
+                case 4:
                     System.out.println("Agregando producto...");
 
                     System.out.print("Introduzca el código del producto: ");
