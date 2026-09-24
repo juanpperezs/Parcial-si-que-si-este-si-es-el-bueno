@@ -59,6 +59,27 @@ public class Supermercado {
         }
         return esEliminado;
     }
+    //Metodo para verificar productos
+    public boolean verificarProducto(int codigoProducto) {
+        boolean existe = false;
+        for (Producto producto : listaProductos) {
+            if (producto.getCodigoProducto() == codigoProducto) {
+                existe = true;
+                break;
+            }
+        }
+        return existe;
+    }
+    //Metodo para agregar productos
+    public boolean agregarProducto(Producto producto){
+        boolean agregado= false;
+        boolean existe= verificarProducto(producto.getCodigoProducto());
+        if(existe==false){
+            listaProductos.add(producto);
+            agregado= true;
+        }
+        return agregado;
+    }
     //Getters y setters
     public String getNombreComercial() {
         return nombreComercial;
