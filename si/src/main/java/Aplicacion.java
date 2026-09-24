@@ -90,8 +90,8 @@ public class Aplicacion {
                         tipoProducto= Categoria.CUIDADO_PERSONAL;
                     } else {
                         System.out.println("Tipo de producto invalido.");
+                        //break;?
                     }
-                    //break;?
 
                     if (tipoProducto != null){
                         Producto producto = new Producto(codigoProducto, nombreProducto, precioUnitario, cantidadProductos, tipoProducto);
