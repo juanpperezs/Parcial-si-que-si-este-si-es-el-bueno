@@ -336,7 +336,7 @@ public class Aplicacion {
                     }
                     break;
                 case 13:
-                    System.out.println("Confirmando ");
+                    System.out.println("Confirmando compra... ");
                     break;
                 case 14:
                     System.out.println("------Mostrar todas las compras------");
