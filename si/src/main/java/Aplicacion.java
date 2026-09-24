@@ -251,8 +251,6 @@ public class Aplicacion {
                         System.out.println(productoLista);
                     }
                         break;
-
-
                 case 10:
                     System.out.println("Mostrando productos por categoria...");
                     int opcionCategoria = sc.nextInt();
@@ -319,6 +317,21 @@ public class Aplicacion {
                         break;
                     }
                 case 12:
+                    System.out.println("Agregando producto a compra existente...");
+
+                    System.out.print("Introduzca el codigo de la compra existente: ");
+                    int codigoCompraBuscada = sc.nextInt();
+                    sc.nextLine();
+
+                    System.out.print("Introduzca el codigo del producto que desea agregar: ");
+                    int codigoProductoAgregado = sc.nextInt();
+                    sc.nextLine();
+
+                    if (supermercado.agregarProductoACompra(codigoCompraBuscada, codigoProductoAgregado)) {
+                        System.out.println("¡Producto agregado a la compra exitosamente!");
+                    } else {
+                        System.out.println("No se encontro la compra o el producto no es valido.");
+                    }
                     break;
                 case 13:
                     break;
