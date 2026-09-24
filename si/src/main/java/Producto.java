@@ -54,6 +54,7 @@ public class Producto {
         this.categoria = categoria;
     }
 
+    //toString
     @Override
     public String toString() {
         return "Producto{" +
