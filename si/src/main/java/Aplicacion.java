@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Aplicacion {
@@ -171,7 +172,6 @@ public class Aplicacion {
                         }
                     }
                     break;
-
                 case 7:
                     System.out.println("Actualizando producto...");
 
@@ -217,7 +217,6 @@ public class Aplicacion {
                         }
                     }
                     break;
-
                 case 8:
                     System.out.println("Eliminando producto...");
 
@@ -230,46 +229,59 @@ public class Aplicacion {
                         System.out.println("Este producto no existe.");
                     }
                     break;
-
                 case 9:
-
                     break;
-
                 case 10:
-
                     break;
-
                 case 11:
+                    System.out.println("Creando compra...");
 
+                    System.out.print("Introduzca la fecha de realización: ");
+                    LocalDate fechaRealizacion = LocalDate.parse(sc.nextLine());
+
+                    System.out.print("Escoja el metodo de pago (1. Tarjeta - 2. Transferencia - 3. Efectivo): ");
+                    int opcionCompras = sc.nextInt();
+                    Categoria tipoCompras= null;
+
+                    if (opcionCompras == 1){
+                        tipoCompras= Categoria.TARJETA;
+                    } else if (opcionCompras  == 2){
+                        tipoCompras= Categoria.TRANSFERENCIA;
+                    } else if (opcionCompras  == 3) {
+                        tipoCompras= Categoria.EFECTIVO;
+                    } else {
+                        System.out.println("Tipo de producto invalido.");
+                        //break;?
+                    }
+
+                    if (tipoCompras != null){
+                        Compras compras = new Compras(codigoProducto, nombreProducto, precioUnitario, cantidadProductos, tipoProducto);
+                        if (supermercado.agregarCompras(compras)){
+                            System.out.println("Producto agregado correctamente: "+ producto.getNombreProducto()+", "+producto.getCodigoProducto()+", "+producto.getCategoria());
+                        } else{
+                            System.out.println("Este producto ya existe.");
+                        }
+                    }
                     break;
 
+                break;
                 case 12:
-
                     break;
-
                 case 13:
-
                     break;
-
                 case 14:
                     System.out.println("------Mostrar todas las compras------");
                     for(Compras comprasLista: supermercado.getListaCompras()){
                         System.out.println(comprasLista);
                     }
                     break;
-
                 case 15:
-
                     break;
-
                 case 16:
-
                     break;
-
                 case 0:
                     System.out.println("Finalizando programa...");
                     break;
-
                 default:
                     System.out.println("Opción no válida...");
             }
