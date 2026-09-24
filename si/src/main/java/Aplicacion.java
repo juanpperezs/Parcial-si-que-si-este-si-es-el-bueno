@@ -12,7 +12,7 @@ public class Aplicacion {
         do{
             System.out.println("----Menú MARKETPLUS----");
             System.out.println("1. Agregar cliente: ");
-            System.out.println("2. ");
+            System.out.println("2. Eliminar cliente:");
 
             System.out.println("0. salir.");
             System.out.print("Selecciona una opcion: ");
@@ -33,7 +33,7 @@ public class Aplicacion {
                     int telefono = sc.nextInt();
 
                     System.out.print("Introduzca el correo electrónico: ");
-                    String correo = sc.next();
+                    String correo = sc.nextLine();
 
                     Clientes cliente = new Clientes(nombreCompleto, documento, telefono, correo);
 
@@ -41,6 +41,19 @@ public class Aplicacion {
                         System.out.println("Cliente agregado correctamente: "+ cliente.getNombreCompleto()+", "+ cliente.getDocumentoIdentidad());
                     } else{
                         System.out.println("Este cliente ya existe.");
+                    }
+                    break;
+
+                case 2:
+                    System.out.println("Eliminando cliente...");
+
+                    System.out.print("Introduzca el documento del cliente a eliminar: ");
+                    int documentoIdentidad = sc.nextInt();
+
+                    if (supermercado.eliminarCliente(documentoIdentidad)){
+                        System.out.println("Cliente con número de documento: "+documentoIdentidad+" fue eliminado correctamente. " );
+                    } else{
+                        System.out.println("Este cliente no existe.");
                     }
                     break;
 
