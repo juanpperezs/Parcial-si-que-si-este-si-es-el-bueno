@@ -253,6 +253,8 @@ public class Aplicacion {
                         break;
                 case 10:
                     System.out.println("Mostrando productos por categoria...");
+
+                    System.out.print("Ingrese que categoría desea inspeccionar (1.ALIMENTO, 2.BEBIDA, 3.PRODUCTO DE ASEO, 4.CUIDADO PERSONAL): ");
                     int opcionCategoria = sc.nextInt();
                     sc.nextLine();
 
@@ -271,7 +273,7 @@ public class Aplicacion {
 
                     for (Producto producto: supermercado.getListaProductos()){
                         if (producto.getCategoria()==categoria){
-                            System.out.print(producto);
+                            System.out.print("Categoria: "+categoria+"\n"+producto);
                         }
                     }
                     break;
