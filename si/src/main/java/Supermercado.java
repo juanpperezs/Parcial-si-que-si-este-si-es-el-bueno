@@ -81,6 +81,15 @@ public class Supermercado {
         }
         return esEliminado;
     }
+    //Método para consultar compras de clientes
+    public Clientes buscarCliente(int documentoIdentidad){
+        for (Clientes clientes: listaClientes){
+            if (clientes.getDocumentoIdentidad() == documentoIdentidad){
+                return clientes;
+            }
+        }
+        return null;
+    }
 
     //========Productos========
 

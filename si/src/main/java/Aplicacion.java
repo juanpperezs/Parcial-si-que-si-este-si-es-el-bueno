@@ -127,7 +127,21 @@ public class Aplicacion {
 
                     if (clienteConsulta == null){
                         System.out.print("Este cliente no existe... Agrégelo en la opción 1.");
-                    } else if (clienteConsulta.getComprasRealizadas())
+                    } else if (clienteConsulta.getComprasRealizadas().isEmpty()){
+                        System.out.println("El cliente "+clienteConsulta.getNombreCompleto()+" no tiene compras realizadas.");
+                        System.out.print("¿Desea realizar una compra para este cliente? (Si/No): ");
+                        String respuesta = sc.nextLine();
+                        if (respuesta.equalsIgnoreCase("Si")){
+                            System.out.println("Perfecto, en este caso puede realizar la compra en la opción 11");
+                        } else if (respuesta.equalsIgnoreCase("No")){
+                            break;
+                        }
+                    } else {
+                        System.out.println("Compras de: "+clienteConsulta.getNombreCompleto());
+                        for (Compras compras: clienteConsulta.getComprasRealizadas()){
+                            System.out.println(compras);
+                        }
+                    }
                     break;
 
                 case 6:
@@ -217,6 +231,7 @@ public class Aplicacion {
                         }
                     }
                     break;
+
                 case 8:
                     System.out.println("Eliminando producto...");
 
