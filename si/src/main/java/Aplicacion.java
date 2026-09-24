@@ -89,8 +89,6 @@ public class Aplicacion {
                         System.out.println("Cliente no encontrado");
                     }
                     break;
-
-
                 case 4:
                     System.out.println("------Mostrar todos los clientes------");
                     for(Clientes clientesLista: supermercado.getListaClientes()){
