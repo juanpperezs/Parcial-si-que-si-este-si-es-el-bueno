@@ -14,6 +14,7 @@ public class Supermercado {
     private List<Producto>listaProductos;
     private List<ReporteVentas>listaReporteVentas;
 
+
     //Constructor
     public Supermercado(String nombreComercial, String direccion, int telefono) {
         this.nombreComercial = nombreComercial;
