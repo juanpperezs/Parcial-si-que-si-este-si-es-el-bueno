@@ -92,6 +92,14 @@ public class Aplicacion {
 
 
                 case 4:
+                    System.out.println("------Mostrar todos los clientes------");
+                    for(Clientes clientesLista: supermercado.getListaClientes()){
+                        System.out.println(clientesLista);
+                    }
+                    break;
+                case 5:
+                    break;
+                case 6:
                     System.out.println("Agregando producto...");
 
                     System.out.print("Introduzca el código del producto: ");
@@ -134,7 +142,6 @@ public class Aplicacion {
                         }
                     }
                     break;
-
                 case 0:
                     System.out.println("Finalizando programa...");
                     break;

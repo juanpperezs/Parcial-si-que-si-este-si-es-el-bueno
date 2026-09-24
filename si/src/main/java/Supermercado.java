@@ -147,6 +147,38 @@ public class Supermercado {
         this.telefono = telefono;
     }
 
+    public List<Clientes> getListaClientes() {
+        return listaClientes;
+    }
+
+    public void setListaClientes(List<Clientes> listaClientes) {
+        this.listaClientes = listaClientes;
+    }
+
+    public List<Compras> getListaCompras() {
+        return listaCompras;
+    }
+
+    public void setListaCompras(List<Compras> listaCompras) {
+        this.listaCompras = listaCompras;
+    }
+
+    public List<Producto> getListaProductos() {
+        return listaProductos;
+    }
+
+    public void setListaProductos(List<Producto> listaProductos) {
+        this.listaProductos = listaProductos;
+    }
+
+    public List<ReporteVentas> getListaReporteVentas() {
+        return listaReporteVentas;
+    }
+
+    public void setListaReporteVentas(List<ReporteVentas> listaReporteVentas) {
+        this.listaReporteVentas = listaReporteVentas;
+    }
+
     //To string
     @Override
     public String toString() {
