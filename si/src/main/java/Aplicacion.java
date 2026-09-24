@@ -70,9 +70,9 @@ public class Aplicacion {
                     Clientes cliente = new Clientes(nombreCompleto, documento, telefono, correo);
 
                     if (supermercado.agregarClientes(cliente)){
-                        System.out.println("Cliente agregado correctamente: "+ cliente.getNombreCompleto()+", "+ cliente.getDocumentoIdentidad());
+                        System.out.println("Cliente agregado correctamente: "+ cliente.getNombreCompleto()+", "+ cliente.getDocumentoIdentidad()+"\n");
                     } else{
-                        System.out.println("Este cliente ya existe.");
+                        System.out.println("Este cliente ya existe."+"\n");
                     }
                     break;
 
@@ -83,9 +83,9 @@ public class Aplicacion {
                     int documentoIdentidad = sc.nextInt();
 
                     if (supermercado.eliminarCliente(documentoIdentidad)){
-                        System.out.println("Cliente con número de documento: "+documentoIdentidad+" fue eliminado correctamente. " );
+                        System.out.println("Cliente con número de documento: "+documentoIdentidad+" fue eliminado correctamente. "+"\n");
                     } else{
-                        System.out.println("Este cliente no existe.");
+                        System.out.println("Este cliente no existe."+"\n");
                     }
                     break;
 
@@ -98,7 +98,7 @@ public class Aplicacion {
                     //Condición para determinar si el usuario a actualizar existe
                     Clientes clienteExistente= supermercado.buscarCliente(documentoBusqueda);
                     if (clienteExistente== null){
-                        System.out.println("Este cliente no existe.");
+                        System.out.println("Este cliente no existe."+"\n");
                         break;
                     }
                     System.out.println("Cliente encontrado.");
@@ -109,7 +109,7 @@ public class Aplicacion {
 
                     //Condición para determinar si el nuevo documento ya está en uso por otro cliente
                     if (documentoActualizado!= documentoBusqueda && supermercado.verificarClientes(documentoActualizado)){
-                        System.out.println("El documento ingresado ya está asociado a otro cliente.");
+                        System.out.println("El documento ingresado ya está asociado a otro cliente."+"\n");
                         break;
                     }
 
@@ -126,9 +126,9 @@ public class Aplicacion {
                     Clientes clientesActualizado= new Clientes (nuevoNombre, documentoActualizado, nuevoTelefono, nuevoCorreo);
 
                     if(supermercado.actualizarCliente (documentoBusqueda, clientesActualizado)){
-                        System.out.println("Cliente actualizado correctamente.");
+                        System.out.println("Cliente actualizado correctamente."+"\n");
                     }else{
-                        System.out.println("Cliente no encontrado");
+                        System.out.println("Cliente no encontrado"+"\n");
                     }
                     break;
 
@@ -149,14 +149,14 @@ public class Aplicacion {
                     Clientes clienteConsulta= supermercado.buscarCliente(documentoConsulta);
 
                     if (clienteConsulta == null){
-                        System.out.print("Este cliente no existe... Agrégelo en la opción 1.");
+                        System.out.print("Este cliente no existe... Agrégelo en la opción 1."+"\n");
                     } else if (clienteConsulta.getComprasRealizadas().isEmpty()){
                         System.out.println("El cliente "+clienteConsulta.getNombreCompleto()+" no tiene compras realizadas.");
                         System.out.print("¿Desea realizar una compra para este cliente? (Si/No): ");
                         String respuesta = sc.nextLine();
                         if (respuesta.equalsIgnoreCase("Si")){
-                            System.out.println("Perfecto, en este caso puede realizar la compra en la opción 11");
-                        } else if (respuesta.equalsIgnoreCase("No")){
+                            System.out.println("Perfecto, en este caso puede realizar la compra en la opción 11"+"\n");
+                        } else if (respuesta.equalsIgnoreCase("No"+"\n")){
                             break;
                         }
                     } else {
@@ -197,15 +197,15 @@ public class Aplicacion {
                     } else if (opcionProducto == 4){
                         tipoProducto= Categoria.CUIDADO_PERSONAL;
                     } else {
-                        System.out.println("Tipo de producto invalido.");
+                        System.out.println("Tipo de producto invalido."+"\n");
                         //break;?
                     }
                     if (tipoProducto != null){
                         Producto producto = new Producto(codigoProducto, nombreProducto, precioUnitario, cantidadProductos, tipoProducto);
                         if (supermercado.agregarProducto(producto)){
-                            System.out.println("Producto agregado correctamente: "+ producto.getNombreProducto()+", "+producto.getCodigoProducto()+", "+producto.getCategoria());
+                            System.out.println("Producto agregado correctamente: "+ producto.getNombreProducto()+", "+producto.getCodigoProducto()+", "+producto.getCategoria()+"\n");
                         } else{
-                            System.out.println("Este producto ya existe.");
+                            System.out.println("Este producto ya existe."+"\n");
                         }
                     }
                     break;
@@ -219,7 +219,7 @@ public class Aplicacion {
 
                     Producto existente= supermercado.buscarProducto(codigoBusqueda);
                     if (existente == null){
-                        System.out.println("Producto no encontrado con el código: "+codigoBusqueda);
+                        System.out.println("Producto no encontrado con el código: "+codigoBusqueda+"\n");
                         break;
                     }
 
@@ -249,16 +249,16 @@ public class Aplicacion {
                     } else if (opcionProductoActualizado == 4){
                         tipoProductoActualizado= Categoria.CUIDADO_PERSONAL;
                     } else {
-                        System.out.println("Tipo de producto invalido.");
+                        System.out.println("Tipo de producto invalido."+"\n");
                         break;
                     }
 
                     Producto productoActualizado= new Producto(codigoBusqueda, nuevoNombreProducto, nuevoPrecio, nuevaCantidad, tipoProductoActualizado);
 
                     if (supermercado.actualizarProducto(codigoBusqueda, productoActualizado)){
-                        System.out.println("Producto actualizado correctamente.");
+                        System.out.println("Producto actualizado correctamente."+"\n");
                     } else {
-                        System.out.println("No se pudo actualizar.");
+                        System.out.println("No se pudo actualizar."+"\n");
                     }
                     break;
 
@@ -269,9 +269,9 @@ public class Aplicacion {
                     codigoProducto = sc.nextInt();
 
                     if (supermercado.eliminarProducto(codigoProducto)){
-                        System.out.println("Producto con el codigo: "+codigoProducto+" fue eliminado correctamente. " );
+                        System.out.println("Producto con el codigo: "+codigoProducto+" fue eliminado correctamente. "+"\n");
                     } else{
-                        System.out.println("Este producto no existe.");
+                        System.out.println("Este producto no existe."+"\n");
                     }
                     break;
 
@@ -297,14 +297,14 @@ public class Aplicacion {
                     } else if (opcionCategoria == 4){
                         categoria= Categoria.CUIDADO_PERSONAL;
                     } else {
-                        System.out.println("Tipo de producto invalido.");
+                        System.out.println("Tipo de producto invalido."+"\n");
                     }
 
                     List<Producto> productosFiltrados= supermercado.getProductosPorCategoria(categoria);
 
                     System.out.println("\n--- Productos en la categoria: "+categoria+"---");
                     if (productosFiltrados.isEmpty()){
-                        System.out.println("No hay productos en la categoria: "+categoria);
+                        System.out.println("No hay productos en la categoria: "+categoria+"\n");
                     }else{
                         for (Producto producto: productosFiltrados){
                             System.out.println("Codigo: "+producto.getCodigoProducto()+
@@ -368,9 +368,9 @@ public class Aplicacion {
                     sc.nextLine();
 
                     if (supermercado.agregarProductoACompra(codigoCompraBuscada, codigoProductoAgregado)) {
-                        System.out.println("¡Producto agregado a la compra exitosamente!");
+                        System.out.println("¡Producto agregado a la compra exitosamente!"+"\n");
                     } else {
-                        System.out.println("No se encontro la compra o el producto no es valido.");
+                        System.out.println("No se encontro la compra o el producto no es valido."+"\n");
                     }
                     break;
 
@@ -394,12 +394,12 @@ public class Aplicacion {
                         boolean esConfirmada = supermercado.confirmarCompra(codigoConfirmacion, codigoCompraConfirmado, cantidadDeseada);
 
                         if (esConfirmada == true) {
-                            System.out.println("¡Compra confirmada e inventario actualizado con éxito!");
+                            System.out.println("¡Compra confirmada e inventario actualizado con éxito!"+"\n");
                         } else {
-                            System.out.println("No se pudo procesar la compra (verifique códigos o stock insuficiente).");
+                            System.out.println("No se pudo procesar la compra (verifique códigos o stock insuficiente)."+"\n");
                         }
                     } else {
-                        System.out.println("Compra cancelada por el usuario.");
+                        System.out.println("Compra cancelada por el usuario."+"\n");
                     }
                     break;
 
@@ -432,7 +432,7 @@ public class Aplicacion {
 
                     int totalVendido= supermercado.valorAcumuladoPorFecha(fechaConsulta);
 
-                    System.out.println("El total vendido en esa fecha es: " + totalVendido);
+                    System.out.println("El total vendido en esa fecha es: " + totalVendido+"\n");
 
                     break;
 
