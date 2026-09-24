@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Supermercado {
 
     //Set atributos
@@ -5,11 +8,23 @@ public class Supermercado {
     private String direccion;
     private int telefono;
 
+    //Lista
+    private List<Clientes>listaClientes;
+    private List<Compras>listaCompras;
+    private List<Producto>listaProductos;
+    private List<ReporteVentas>listaReporteVentas;
+
     //Constructor
     public Supermercado(String nombreComercial, String direccion, int telefono) {
         this.nombreComercial = nombreComercial;
         this.direccion = direccion;
         this.telefono = telefono;
+
+        //Iniciar listas
+        listaClientes= new ArrayList<>();
+        listaCompras= new ArrayList<>();
+        listaProductos= new ArrayList<>();
+        listaReporteVentas= new ArrayList<>();
     }
 
     //Getters y setters
@@ -45,8 +60,10 @@ public class Supermercado {
                 "nombreComercial='" + nombreComercial + '\'' +
                 ", direccion='" + direccion + '\'' +
                 ", telefono=" + telefono +
+                ", listaClientes=" + listaClientes +
+                ", listaCompras=" + listaCompras +
+                ", listaProductos=" + listaProductos +
+                ", listaReporteVentas=" + listaReporteVentas +
                 '}';
     }
-
 }
-
