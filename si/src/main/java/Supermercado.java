@@ -27,7 +27,7 @@ public class Supermercado {
         listaProductos= new ArrayList<>();
         listaReporteVentas= new ArrayList<>();
     }
-    //Metodo para verificar clientes
+    //Método para verificar clientes
     public boolean verificarClientes(int documentoIdentidad) {
         boolean existe = false;
         for (Clientes clientes : listaClientes) {
