@@ -107,8 +107,15 @@ public class Aplicacion {
                         System.out.println("Cliente no encontrado");
                     }
                     break;
-
-
+                case 4:
+                    System.out.println("------Mostrar todos los clientes------");
+                    for(Clientes clientesLista: supermercado.getListaClientes()){
+                        System.out.println(clientesLista);
+                    }
+                    break;
+                case 5:
+                    System.out.println("-----Consultar compras de clientes-----");
+                    break;
                 case 6:
                     System.out.println("Agregando producto...");
 
@@ -152,7 +159,6 @@ public class Aplicacion {
                         }
                     }
                     break;
-
                 case 0:
                     System.out.println("Finalizando programa...");
                     break;
