@@ -53,6 +53,22 @@ public class Supermercado {
         return agregado;
     }
 
+    //Metodo para actualizar datos de cliente
+    public boolean actualizarCliente (int documento, Clientes clienteActualizado) {
+        boolean estaActualizado = false;
+        for (Clientes cliente : listaClientes) {
+            if (cliente.getDocumentoIdentidad() == documento) {
+                cliente.setDocumentoIdentidad(clienteActualizado.getDocumentoIdentidad());
+                cliente.setNombreCompleto(clienteActualizado.getNombreCompleto());
+                cliente.setTelefono(clienteActualizado.getTelefono());
+                cliente.setCorreoElectronico(clienteActualizado.getCorreoElectronico());
+                estaActualizado = true;
+                break;
+            }
+        }
+        return estaActualizado;
+    }
+
     //Metodo para eliminar clientes
     public boolean eliminarCliente (int documentoIdentidad){
         boolean esEliminado=false;
