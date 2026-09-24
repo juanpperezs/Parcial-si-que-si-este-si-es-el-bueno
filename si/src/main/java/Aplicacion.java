@@ -35,7 +35,7 @@ public class Aplicacion {
                     //Agregar una decision para terminar el sistema con el documento
                     System.out.print("Introduzca el número de teléfono: ");
                     int telefono = sc.nextInt();
-
+                    sc.nextLine();
                     System.out.print("Introduzca el correo electrónico: ");
                     String correo = sc.nextLine();
 
