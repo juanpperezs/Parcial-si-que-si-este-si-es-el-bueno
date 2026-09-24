@@ -28,7 +28,7 @@ public class Aplicacion {
 
                     System.out.print("Introduzca el documento de identidad: ");
                     int documento = sc.nextInt();
-
+                    //Agregar una decision para terminar el sistema con el documento
                     System.out.print("Introduzca el número de teléfono: ");
                     int telefono = sc.nextInt();
 
@@ -91,6 +91,7 @@ public class Aplicacion {
                     } else {
                         System.out.println("Tipo de producto invalido.");
                     }
+                    //break;?
 
                     if (tipoProducto != null){
                         Producto producto = new Producto(codigoProducto, nombreProducto, precioUnitario, cantidadProductos, tipoProducto);
