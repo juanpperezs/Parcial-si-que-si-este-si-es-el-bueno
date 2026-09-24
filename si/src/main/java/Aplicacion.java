@@ -186,7 +186,6 @@ public class Aplicacion {
                     break;
                 case 16:
                     break;
-
                 case 0:
                     System.out.println("Finalizando programa...");
                     break;
