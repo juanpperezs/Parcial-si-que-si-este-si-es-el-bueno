@@ -9,6 +9,8 @@ public class Producto {
     //Relación de Producto con categoria
     private Categoria categoria;
 
+
+
     //Constructor
     public Producto(int codigoProducto, String nombreProducto, int precioUnitario, int cantidadDisponible, Categoria categoria) {
         this.codigoProducto = codigoProducto;

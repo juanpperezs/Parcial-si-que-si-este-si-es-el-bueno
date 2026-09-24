@@ -247,6 +247,8 @@ public class Aplicacion {
                     break;
 
                 case 9:
+                    for(Producto productoLista: supermercado.getListaProductos()){
+                        System.out.println(productoLista);
 
                     break;
 
