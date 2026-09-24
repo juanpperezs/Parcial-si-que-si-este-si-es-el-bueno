@@ -247,7 +247,7 @@ public class Aplicacion {
                     break;
 
                 case 9:
-                    for(Producto productoLista: supermercado.getListaProductos()) {
+                    for(Producto productoLista: supermercado.getListaProductos()){
                         System.out.println(productoLista);
                     }
                         break;
@@ -301,25 +301,23 @@ public class Aplicacion {
                         metodoPago = MetodoPago.EFECTIVO;
                     } else {
                         System.out.println("Método de pago inválido.");
+
+                        System.out.print("Introduzca el nombre del producto comprado: ");
+                        String productoComprado = sc.nextLine();
+
+                        System.out.print("Introduzca el valor total: ");
+                        int valorTotal = sc.nextInt();
+                        sc.nextLine();
+
+                        Compras compras = new Compras(codigoCompra, fechaRealizacion, metodoPago, productoComprado, valorTotal);
+
+                        if (supermercado.agregarCompras(compras)) {
+                            System.out.println("¡Compra agregada correctamente!");
+                        } else {
+                            System.out.println("Esta compra ya existe.");
+                        }
                         break;
                     }
-
-                    System.out.print("Introduzca el nombre del producto comprado: ");
-                    String productoComprado = sc.nextLine();
-
-                    System.out.print("Introduzca el valor total: ");
-                    int valorTotal = sc.nextInt();
-                    sc.nextLine();
-
-                    Compras compras = new Compras(codigoCompra, fechaRealizacion, metodoPago, productoComprado, valorTotal);
-
-                    if (supermercado.agregarCompras(compras)) {
-                        System.out.println("¡Compra agregada correctamente!");
-                    } else {
-                        System.out.println("Esta compra ya existe.");
-                    }
-                    break;
-
                 case 12:
                     break;
                 case 13:
