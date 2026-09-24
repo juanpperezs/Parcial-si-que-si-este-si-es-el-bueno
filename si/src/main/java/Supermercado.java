@@ -143,6 +143,9 @@ public class Supermercado {
         }
         return esEliminado;
     }
+
+    //=========COMPRAS==========
+
     //Metodo para verificar compras
     public boolean verificarCompras(int codigoCompra) {
         boolean existe = false;
@@ -165,6 +168,22 @@ public class Supermercado {
         return agregado;
     }
 
+    //Metodo para confirmar compra
+    public boolean confirmarCompra(int codigoProducto, int cantidadDeseada, int cantidadDisponible){
+
+        boolean esConfirmado=false;
+        for (Producto producto: listaProductos){
+            if (producto.getCodigoProducto() == codigoProducto){
+                if (producto.getCantidadDisponible() >= cantidadDeseada){
+                esConfirmado=true;
+
+                    int nuevaCantidad = producto.getCantidadDisponible() - cantidadDeseada;
+                    producto.setCantidadDisponible(nuevaCantidad);
+                }
+            }
+        }
+        return esConfirmado;
+    }
 
     //Getters y setters
     public String getNombreComercial() {
