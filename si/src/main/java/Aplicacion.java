@@ -366,7 +366,18 @@ public class Aplicacion {
 
 
                 case 15:
+                    System.out.println("--- Ver Detalles de Compra ---");
+                    System.out.println("Ingrese el código de la compra: ");
+                    int codigoDetallesCompra = sc.nextInt();
+                    sc.nextLine();
 
+                    Compras compraMostrada = supermercado.verDetalleCompra(codigoDetallesCompra);
+
+                    System.out.println("Código: " + compraMostrada.getCodigoCompra());
+                    System.out.println("Fecha: " + compraMostrada.getFechaRealizacion());
+                    System.out.println("Método de Pago: " + compraMostrada.getMetodoPago());
+                    System.out.println("Valor Total: " + compraMostrada.getValorTotal());
+                    break;
                 case 16:
 
                     break;
