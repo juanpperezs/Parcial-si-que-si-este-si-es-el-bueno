@@ -27,7 +27,7 @@ public class Supermercado {
         listaProductos= new ArrayList<>();
         listaReporteVentas= new ArrayList<>();
     }
-    //Metodo para verificar clientes
+    //Método para verificar clientes
     public boolean verificarClientes(int documentoIdentidad) {
         boolean existe = false;
         for (Clientes clientes : listaClientes) {
@@ -80,6 +80,20 @@ public class Supermercado {
             agregado= true;
         }
         return agregado;
+    }
+    //Actualizar productos
+    public boolean actualizarProducto (int codigoProducto, Producto productoActualizado){
+        boolean estaActualizado=false;
+        for (Producto producto: listaProductos){
+            if (producto.getCodigoProducto() == codigoProducto){
+                producto.setNombreProducto(productoActualizado.getNombreProducto());
+                producto.setPrecioUnitario(productoActualizado.getPrecioUnitario());
+                producto.setCantidadDisponible(productoActualizado.getCantidadDisponible());
+                estaActualizado=true;
+                break;
+            }
+        }
+        return estaActualizado;
     }
     //Getters y setters
     public String getNombreComercial() {
