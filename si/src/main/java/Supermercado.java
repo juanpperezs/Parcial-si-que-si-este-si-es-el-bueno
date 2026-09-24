@@ -26,6 +26,27 @@ public class Supermercado {
         listaProductos= new ArrayList<>();
         listaReporteVentas= new ArrayList<>();
     }
+    //Metodo para verificar clientes
+    public boolean verificarClientes(int documentoIdentidad) {
+        boolean existe = false;
+        for (Clientes clientes : listaClientes) {
+            if (clientes.getDocumentoIdentidad() == documentoIdentidad) {
+                existe = true;
+                break;
+            }
+        }
+        return existe;
+    }
+    //Metodo para agregar clientes
+    public boolean agregarClientes(Clientes clientes){
+        boolean agregado= false;
+        boolean existe= verificarClientes(clientes.getDocumentoIdentidad());
+        if(existe==false){
+            listaClientes.add(clientes);
+            agregado= true;
+        }
+        return agregado;
+    }
 
     //Getters y setters
 
