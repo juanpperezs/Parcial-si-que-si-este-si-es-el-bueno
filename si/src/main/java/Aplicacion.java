@@ -247,10 +247,11 @@ public class Aplicacion {
                     break;
 
                 case 9:
-                    for(Producto productoLista: supermercado.getListaProductos()){
+                    for(Producto productoLista: supermercado.getListaProductos()) {
                         System.out.println(productoLista);
 
-                    break;
+                        break;
+                    }
 
                 case 10:
                     System.out.println("Mostrando productos por categoria...");
