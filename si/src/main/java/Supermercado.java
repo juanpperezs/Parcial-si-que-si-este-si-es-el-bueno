@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class Supermercado {
 
     //Set atributos
@@ -5,7 +7,7 @@ public class Supermercado {
     private String direccion;
     private int telefono;
 
-    //Constructor
+    //Set constructor
     public Supermercado(String nombreComercial, String direccion, int telefono) {
         this.nombreComercial = nombreComercial;
         this.direccion = direccion;
