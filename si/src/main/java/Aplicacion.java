@@ -53,7 +53,14 @@ public class Aplicacion {
 
                     System.out.print("Introduzca el documento de identidad: ");
                     int documento = sc.nextInt();
-                    //Agregar una decision para terminar el sistema con el documento
+                    sc.nextLine();
+                    //Condición para terminar si se crea un nuevo usuario con igual documento ya registrado
+                    if (supermercado.verificarClientes(documento)){
+                        System.out.println("El documento ingresado ya está registrado en otro cliente.");
+                        System.out.println("No se puede crear. Use otro documento o actualice la información desde la opción 3.");
+                        break;
+                    }
+
                     System.out.print("Introduzca el número de teléfono: ");
                     int telefono = sc.nextInt();
                     sc.nextLine();
@@ -88,9 +95,23 @@ public class Aplicacion {
                     System.out.print("Introduzca el documento del cliente a actualizar: ");
                     int documentoBusqueda= sc.nextInt();
 
+                    //Condición para determinar si el usuario a actualizar existe
+                    Clientes clienteExistente= supermercado.buscarCliente(documentoBusqueda);
+                    if (clienteExistente== null){
+                        System.out.println("Este cliente no existe.");
+                        break;
+                    }
+                    System.out.println("Cliente encontrado.");
+
                     System.out.print("Introduzca el nuevo número de documento del cliente: ");
                     int documentoActualizado = sc.nextInt();
                     sc.nextLine();
+
+                    //Condición para determinar si el nuevo documento ya está en uso por otro cliente
+                    if (documentoActualizado!= documentoBusqueda && supermercado.verificarClientes(documentoActualizado)){
+                        System.out.println("El documento ingresado ya está asociado a otro cliente.");
+                        break;
+                    }
 
                     System.out.print("Introduzca el nuevo nombre del cliente: ");
                     String nuevoNombre= sc.nextLine();
@@ -412,7 +433,6 @@ public class Aplicacion {
                     int totalVendido= supermercado.valorAcumuladoPorFecha(fechaConsulta);
 
                     System.out.println("El total vendido en esa fecha es: " + totalVendido);
-
 
                     break;
 
