@@ -75,6 +75,7 @@ public class Aplicacion {
 
                     System.out.print("Introduzca el nuevo teléfono del cliente: ");
                     int nuevoTelefono = sc.nextInt();
+                    sc.nextLine();
 
                     System.out.print("Introduzca el nuevo correo del cliente: ");
                     String nuevoCorreo = sc.nextLine();
