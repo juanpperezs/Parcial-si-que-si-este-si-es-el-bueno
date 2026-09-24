@@ -149,7 +149,6 @@ public class Aplicacion {
                         System.out.println("Tipo de producto invalido.");
                         //break;?
                     }
-
                     if (tipoProducto != null){
                         Producto producto = new Producto(codigoProducto, nombreProducto, precioUnitario, cantidadProductos, tipoProducto);
                         if (supermercado.agregarProducto(producto)){
