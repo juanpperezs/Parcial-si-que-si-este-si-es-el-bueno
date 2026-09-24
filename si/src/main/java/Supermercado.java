@@ -181,7 +181,7 @@ public class Supermercado {
         return productoEncontrado;
     }
     //Metodo para confirmar compra
-    public boolean confirmarCompra(int codigoProducto, int cantidadDeseada, int codigoCompra){
+    public boolean confirmarCompra(int codigoProducto, int cantidadDeseada, int cantidadDisponible) {
 
         boolean esConfirmado=false;
         for (Producto producto: listaProductos){
@@ -189,7 +189,6 @@ public class Supermercado {
                 if (producto.getCantidadDisponible() >= cantidadDeseada){
                     esConfirmado=true;
 
-                    int codigoConfirmado= Compras.getCodigoCompra();
                     int nuevaCantidad = producto.getCantidadDisponible() - cantidadDeseada;
                     producto.setCantidadDisponible(nuevaCantidad);
                 }
@@ -197,6 +196,7 @@ public class Supermercado {
         }
         return esConfirmado;
     }
+
     //Metodo para buscar una compra por codigo
     public Compras buscarCompra(int codigo) {
         Compras compraEncontrada = null;
@@ -248,6 +248,9 @@ public class Supermercado {
     public Compras verDetalleCompra(int codigoCompra) {
         return buscarCompra(codigoCompra);
     }
+
+    //Metodo para reporte de total en una fecha
+
 
     //Getters y setters
     public String getNombreComercial() {

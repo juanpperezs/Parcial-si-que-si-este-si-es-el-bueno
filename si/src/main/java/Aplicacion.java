@@ -377,7 +377,17 @@ public class Aplicacion {
                     System.out.println("Método de Pago: " + compraMostrada.getMetodoPago());
                     System.out.println("Valor Total: " + compraMostrada.getValorTotal());
                     break;
+
                 case 16:
+                    System.out.println("Mostrando todas las compras desde una fecha...");
+
+                    System.out.println("Introduzca la fecha de realizacion (AAAA-MM-DD): ");
+                    LocalDate fechaConsulta = LocalDate.parse(sc.nextLine());
+
+                    int totalVendido= supermercado.valorAcumuladoPorFecha(fechaConsulta);
+
+                    System.out.println("El total vendido en esa fecha es: " + totalVendido);
+
 
                     break;
 
