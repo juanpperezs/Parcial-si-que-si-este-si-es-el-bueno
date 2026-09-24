@@ -98,6 +98,7 @@ public class Aplicacion {
                     }
                     break;
                 case 5:
+                    System.out.println("-----Consultar compras de clientes-----");
                     break;
                 case 6:
                     System.out.println("Agregando producto...");
