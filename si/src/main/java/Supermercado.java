@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -81,7 +82,7 @@ public class Supermercado {
         }
         return esEliminado;
     }
-    //Método para consultar compras de clientes
+    //Metodo para consultar busquedas de clientes
     public Clientes buscarCliente(int documentoIdentidad){
         for (Clientes clientes: listaClientes){
             if (clientes.getDocumentoIdentidad() == documentoIdentidad){
@@ -164,7 +165,81 @@ public class Supermercado {
         }
         return agregado;
     }
+    //Metodo para buscar un producto por codigo
+    public Producto buscarProducto(int codigo) {
+        Producto productoEncontrado = null;
+        for (int i = 0; i < listaProductos.size(); i++) {
+            Producto productoActual = listaProductos.get(i);
+            if (productoActual.getCodigoProducto() == codigo) {
+                productoEncontrado = productoActual;
+                break;
+            }
+        }
+        return productoEncontrado;
+    }
+    //Metodo para confirmar compra
+    public boolean confirmarCompra(int codigoProducto, int cantidadDeseada, int cantidadDisponible){
 
+        boolean esConfirmado=false;
+        for (Producto producto: listaProductos){
+            if (producto.getCodigoProducto() == codigoProducto){
+                if (producto.getCantidadDisponible() >= cantidadDeseada){
+                    esConfirmado=true;
+
+                    int nuevaCantidad = producto.getCantidadDisponible() - cantidadDeseada;
+                    producto.setCantidadDisponible(nuevaCantidad);
+                }
+            }
+        }
+        return esConfirmado;
+    }
+    //Metodo para buscar una compra por codigo
+    public Compras buscarCompra(int codigo) {
+        Compras compraEncontrada = null;
+        for (int i = 0; i < listaCompras.size(); i++) {
+            Compras compraActual = listaCompras.get(i);
+            if (compraActual.getCodigoCompra() == codigo) {
+                compraEncontrada = compraActual;
+                break;
+            }
+        }
+        return compraEncontrada;
+    }
+
+    //Metodo para obtener productos por categoria
+    public List<Producto> getProductosPorCategoria(Categoria cat) {
+        List<Producto> lista = new ArrayList<>();
+        for (int i = 0; i < listaProductos.size(); i++) {
+            Producto productoActual = listaProductos.get(i);
+            if (productoActual.getCategoria() == cat) {
+                lista.add(productoActual);
+            }
+        }
+        return lista;
+    }
+
+    //Metodo para calcular el valor acumulado por fecha
+    public int valorAcumuladoPorFecha(LocalDate fecha) {
+        int acumulado = 0;
+        for (int i = 0; i < listaCompras.size(); i++) {
+            Compras compraActual = listaCompras.get(i);
+            if (compraActual.getFechaRealizacion().equals(fecha) && compraActual.isConfirmada() == true) {
+                acumulado = acumulado + compraActual.getValorTotal();
+            }
+        }
+        return acumulado;
+    }
+    public boolean agregarProductoACompra(int codigoCompra, int codigoProducto) {
+        boolean agregado = false;
+        Compras compraEncontrada = buscarCompra(codigoCompra);
+        Producto productoEncontrado = buscarProducto(codigoProducto);
+
+        if (compraEncontrada != null && productoEncontrado != null) {
+            agregado = compraEncontrada.agregarProducto(productoEncontrado);
+        }
+
+        return agregado;
+    }
 
     //Getters y setters
     public String getNombreComercial() {
