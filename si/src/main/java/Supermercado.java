@@ -48,8 +48,19 @@ public class Supermercado {
         }
         return agregado;
     }
+    //Metodo para eliminar clientes
+    public boolean eliminarCliente (int documentoIdentidad){
+        boolean esEliminado=false;
+        for (Clientes clientes: listaClientes){
+            if(clientes.getDocumentoIdentidad()==documentoIdentidad){
+                listaClientes.remove(clientes);
+                esEliminado=true;
+                break;
+            }
+        }
+        return esEliminado;
+    }
     //Getters y setters
-
     public String getNombreComercial() {
         return nombreComercial;
     }
