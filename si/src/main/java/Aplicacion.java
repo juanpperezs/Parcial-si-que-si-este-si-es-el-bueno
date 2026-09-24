@@ -354,7 +354,32 @@ public class Aplicacion {
                     break;
 
                 case 13:
+                    System.out.println("Confirmando compra...");
 
+                    System.out.println("Ingrese el código de producto a confirmar");
+                    int codigoConfirmacion = sc.nextInt();
+
+                    System.out.println("Ingrese el código de la compra");
+                    int codigoCompraConfirmado = sc.nextInt();
+
+                    System.out.println("Ingrese la cantidad a comprar");
+                    int cantidadDeseada = sc.nextInt();
+                    sc.nextLine();
+
+                    System.out.println("¿Desea confirmar la compra? (S/N): ");
+                    String confirmacion = sc.nextLine();
+
+                    if (confirmacion.equalsIgnoreCase("s")) {
+                        boolean esConfirmada = supermercado.confirmarCompra(codigoConfirmacion, codigoCompraConfirmado, cantidadDeseada);
+
+                        if (esConfirmada == true) {
+                            System.out.println("¡Compra confirmada e inventario actualizado con éxito!");
+                        } else {
+                            System.out.println("No se pudo procesar la compra (verifique códigos o stock insuficiente).");
+                        }
+                    } else {
+                        System.out.println("Compra cancelada por el usuario.");
+                    }
                     break;
 
                 case 14:
