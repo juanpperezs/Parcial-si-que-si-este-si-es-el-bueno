@@ -82,6 +82,16 @@ public class Supermercado {
         return esEliminado;
     }
 
+    //Método para consultar compras de clientes
+    public Clientes buscarCliente(int documentoIdentidad){
+        for (Clientes clientes: listaClientes){
+            if (clientes.getDocumentoIdentidad() == documentoIdentidad){
+                return clientes;
+            }
+        }
+        return null;
+    }
+
     //========Productos========
 
     //Metodo para verificar productos
@@ -125,6 +135,18 @@ public class Supermercado {
     //Metodo mostrar productos
     public boolean mostrarProducto (int codigoProducto, String nombreProducto, int precioUnitario, int cantidadDisponible){
 
+    }
+    //Metodo para eliminar producto
+    public boolean eliminarProducto (int codigoProducto){
+        boolean esEliminado=false;
+        for (Producto producto: listaProductos){
+            if(producto.getCodigoProducto()==codigoProducto){
+                listaProductos.remove(producto);
+                esEliminado=true;
+                break;
+            }
+        }
+        return esEliminado;
     }
 
     //Getters y setters

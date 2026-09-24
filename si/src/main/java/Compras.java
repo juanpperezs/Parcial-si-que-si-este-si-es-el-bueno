@@ -7,6 +7,7 @@ public class Compras {
     private String productoComprado;
     private int valorTotal;
 
+
     public Compras (int codigoCompra, LocalDate fechaRealizacion, MetodoPago metodoPago, String productoComprado, int valorTotal){
         this.codigoCompra= codigoCompra;
         this.fechaRealizacion= fechaRealizacion;
@@ -15,10 +16,11 @@ public class Compras {
         this.valorTotal=valorTotal;
     }
 
+
+    //Getters y setters
     public int getCodigoCompra() {
         return codigoCompra;
     }
-
     public void setCodigoCompra(int codigoCompra) {
         this.codigoCompra = codigoCompra;
     }
@@ -26,7 +28,6 @@ public class Compras {
     public LocalDate getFechaRealizacion() {
         return fechaRealizacion;
     }
-
     public void setFechaRealizacion(LocalDate fechaRealizacion) {
         this.fechaRealizacion = fechaRealizacion;
     }
@@ -34,7 +35,6 @@ public class Compras {
     public MetodoPago getMetodoPago() {
         return metodoPago;
     }
-
     public void setMetodoPago(MetodoPago metodoPago) {
         this.metodoPago = metodoPago;
     }
@@ -42,7 +42,6 @@ public class Compras {
     public String getProductoComprado() {
         return productoComprado;
     }
-
     public void setProductoComprado(String productoComprado) {
         this.productoComprado = productoComprado;
     }
@@ -50,7 +49,6 @@ public class Compras {
     public int getValorTotal() {
         return valorTotal;
     }
-
     public void setValorTotal(int valorTotal) {
         this.valorTotal = valorTotal;
     }
