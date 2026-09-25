@@ -181,22 +181,29 @@ public class Supermercado {
         return productoEncontrado;
     }
     //Metodo para confirmar compra
-    public boolean confirmarCompra(int codigoProducto, int cantidadDeseada, int cantidadDisponible) {
+    public boolean confirmarCompra(int codigoProducto, int codigoCompra, int cantidadDesa) {
+        boolean esConfirmado = false;
 
-        boolean esConfirmado=false;
-        for (Producto producto: listaProductos){
-            if (producto.getCodigoProducto() == codigoProducto){
-                if (producto.getCantidadDisponible() >= cantidadDeseada){
-                    esConfirmado=true;
-
-                    int nuevaCantidad = producto.getCantidadDisponible() - cantidadDeseada;
+        for (Producto producto : listaProductos) {
+            if (producto.getCodigoProducto() == codigoProducto) {
+                if (producto.getCantidadDisponible() >= cantidadDesa) {
+                    int nuevaCantidad = producto.getCantidadDisponible() - cantidadDesa;
                     producto.setCantidadDisponible(nuevaCantidad);
+                    esConfirmado = true;
                 }
             }
         }
+
+        if (esConfirmado) {
+            for (Compras compra : listaCompras) {
+                if (compra.getCodigoCompra() == codigoCompra) {
+                    compra.setConfirmada(true);
+                }
+            }
+        }
+
         return esConfirmado;
     }
-
     //Metodo para buscar una compra por codigo
     public Compras buscarCompra(int codigo) {
         Compras compraEncontrada = null;

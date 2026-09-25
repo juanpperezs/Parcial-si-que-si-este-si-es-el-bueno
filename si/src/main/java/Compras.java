@@ -104,6 +104,9 @@ public class Compras {
     public boolean isConfirmada() {
         return confirmada;
     }
+    public void setConfirmada(boolean confirmada) {
+        this.confirmada = confirmada;
+    }
 
     @Override
     public String toString() {
