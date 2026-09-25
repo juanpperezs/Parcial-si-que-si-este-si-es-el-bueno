@@ -318,6 +318,16 @@ public class Aplicacion {
                 case 11:
                     System.out.println("Creando compra...");
 
+                    System.out.print("Introduzca el documento del cliente que realiza la compra: ");
+                    int documentoCliente = sc.nextInt();
+                    sc.nextLine();
+
+                    Clientes clienteEncontrado = supermercado.buscarCliente(documentoCliente);
+
+                    if (clienteEncontrado == null) {
+                        System.out.println("El cliente no existe. Debe crearlo primero en la opción 1.");
+                        break;
+                    }
 
                     int codigoCompra = 1 + (int) (Math.random() * 100);
                     System.out.println("Código de compra asignado: " + codigoCompra);
